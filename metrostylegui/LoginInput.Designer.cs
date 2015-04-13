@@ -1,6 +1,6 @@
 ﻿namespace metrostylegui
 {
-    partial class UserControl1
+    partial class LoginInput
     {
         /// <summary> 
         /// Required designer variable.

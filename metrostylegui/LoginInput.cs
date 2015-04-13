@@ -12,9 +12,9 @@ using MetroFramework.Controls;
 
 namespace metrostylegui
 {
-    public partial class UserControl1 : MetroUserControl
+    public partial class LoginInput : MetroUserControl
     {
-        public UserControl1()
+        public LoginInput()
         {
             InitializeComponent();
 

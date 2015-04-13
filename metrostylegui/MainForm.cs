@@ -27,10 +27,10 @@ namespace metrostylegui
             uc.Left = (this.Width - uc.Width) / 2 - this.Padding.Left;
         }
 
-        private UserControl1 uc1;
+        private LoginInput uc1;
         void MainForm_Load(object sender, System.EventArgs e)
         {
-            this.uc1 = new UserControl1();
+            this.uc1 = new LoginInput();
             this.uc1.UserChanged += uc1_UserChanged;
             this.metroTabPage1.Controls.Add(this.uc1);
             uc1.Focus();
@@ -38,10 +38,7 @@ namespace metrostylegui
 
         void uc1_UserChanged(object sender, UserChangedArgs e)
         {
-            metroTabPage1.Text = e.User.Displayname;
-            // dupa dupa
-            // agasda
-            // dzialac budzie
+            metroTabPage1.Text = e.User.Displayname; 
         }
     }
 }
