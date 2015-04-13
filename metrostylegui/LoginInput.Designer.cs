@@ -32,6 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.bLog = new MetroFramework.Controls.MetroButton();
+            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
             this.lLogin = new MetroFramework.Controls.MetroLabel();
             this.lPwd = new MetroFramework.Controls.MetroLabel();
             this.tPwd = new MetroFramework.Controls.MetroTextBox();
@@ -60,6 +61,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.metroProgressSpinner1, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.lLogin, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lPwd, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tPwd, 2, 2);
@@ -109,7 +111,20 @@
             this.bLog.TabIndex = 0;
             this.bLog.Text = "Login!";
             this.bLog.UseSelectable = true;
-            this.bLog.Click += new System.EventHandler(this.bLog_Click);
+            this.bLog.Click += new System.EventHandler(this.bLogin_Click);
+            // 
+            // metroProgressSpinner1
+            // 
+            this.metroProgressSpinner1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(498, 23);
+            this.metroProgressSpinner1.Maximum = 100;
+            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
+            this.tableLayoutPanel1.SetRowSpan(this.metroProgressSpinner1, 2);
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(53, 54);
+            this.metroProgressSpinner1.TabIndex = 14;
+            this.metroProgressSpinner1.UseSelectable = true;
+            this.metroProgressSpinner1.UseStyleColors = true;
+            this.metroProgressSpinner1.Visible = false;
             // 
             // lLogin
             // 
@@ -171,12 +186,12 @@
             this.tLogin.WordWrap = false;
             this.tLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tLogin_KeyPress);
             // 
-            // UserControl1
+            // LoginInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelbody);
-            this.Name = "UserControl1";
+            this.Name = "LoginInput";
             this.Size = new System.Drawing.Size(600, 110);
             this.panelbody.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -195,6 +210,7 @@
         private MetroFramework.Controls.MetroTextBox tPwd;
         private MetroFramework.Controls.MetroTextBox tLogin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
 
 
     }
