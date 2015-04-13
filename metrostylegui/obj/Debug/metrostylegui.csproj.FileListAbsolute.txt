@@ -36,3 +36,6 @@ E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\trying
 E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl1.resources
 E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl2.resources
 E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.csproj.GenerateResource.Cache
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.exe.config
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.exe
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.pdb
