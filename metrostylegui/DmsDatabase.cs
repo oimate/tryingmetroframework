@@ -96,7 +96,7 @@ namespace metrostylegui
                 catch (SqlException sqlex)
                 {
 #if DEBUG
-                    System.Diagnostics.Debugger.Break();
+                    //System.Diagnostics.Debugger.Break();
                     System.Diagnostics.Debug.WriteLine(
                         string.Format("SqlException: {0} errors", sqlex.Errors.Count));
                     foreach (SqlError error in sqlex.Errors)
@@ -109,7 +109,7 @@ namespace metrostylegui
                 catch (Exception genericex)
                 {
 #if DEBUG
-                    System.Diagnostics.Debugger.Break();
+                    //System.Diagnostics.Debugger.Break();
                     System.Diagnostics.Debug.WriteLine(genericex.Message);
 #endif
                 }
