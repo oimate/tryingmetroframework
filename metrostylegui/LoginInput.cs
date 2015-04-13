@@ -21,6 +21,11 @@ namespace metrostylegui
             this.ParentChanged += UserControl1_ParentChanged;
         }
 
+        public void FirstFocus()
+        {
+            tLogin.Focus();
+        }
+
         void UserControl1_ParentChanged(object sender, EventArgs e)
         {
             if (Parent != null && ParentForm != null)

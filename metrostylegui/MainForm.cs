@@ -33,7 +33,7 @@ namespace metrostylegui
             this.uc1 = new LoginInput();
             this.uc1.UserChanged += uc1_UserChanged;
             this.metroTabPage1.Controls.Add(this.uc1);
-            uc1.Focus();
+            this.uc1.FirstFocus();
         }
 
         void uc1_UserChanged(object sender, UserChangedArgs e)
