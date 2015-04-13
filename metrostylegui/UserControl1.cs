@@ -66,6 +66,12 @@ namespace metrostylegui
             if (user != null && UserChanged != null)
             {
                 UserChanged(this, new UserChangedArgs() { User = user });
+                MetroFramework.MetroMessageBox.Show(this.ParentForm, "login Sucessfull", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(this.ParentForm, "login failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);             
             }
         }
 
