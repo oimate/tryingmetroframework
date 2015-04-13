@@ -60,12 +60,6 @@
     <Compile Include="LoginInput.Designer.cs">
       <DependentUpon>LoginInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="TopBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TopBar.Designer.cs">
-      <DependentUpon>TopBar.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,9 +89,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TopBar.resx">
-      <DependentUpon>TopBar.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="UserDataSet.xsc">
       <DependentUpon>UserDataSet.xsd</DependentUpon>
     </None>
