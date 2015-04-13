@@ -41,7 +41,7 @@ namespace metrostylegui
             metroTabPage1.Text = e.User.Displayname;
             // dupa dupa
             // agasda
-
+            // dzialac budzie
         }
     }
 }
