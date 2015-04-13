@@ -12,3 +12,15 @@ c:\users\opar\documents\visual studio 2013\Projects\tryingmetroframework\metrost
 c:\users\opar\documents\visual studio 2013\Projects\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.csprojResolveAssemblyReference.cache
 c:\users\opar\documents\visual studio 2013\Projects\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl1.resources
 c:\users\opar\documents\visual studio 2013\Projects\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl2.resources
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.exe.config
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.exe
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.pdb
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.exe
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.pdb
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.csprojResolveAssemblyReference.cache
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.MainForm.resources
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.Properties.Resources.resources
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl1.resources
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl2.resources
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.csproj.GenerateResource.Cache
+D:\Users\PLRADSLI\Documents\GitHub\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.TopBar.resources

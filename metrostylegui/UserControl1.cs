@@ -19,12 +19,6 @@ namespace metrostylegui
             InitializeComponent();
 
             this.ParentChanged += UserControl1_ParentChanged;
-            this.GotFocus += UserControl1_GotFocus;
-        }
-
-        void UserControl1_GotFocus(object sender, EventArgs e)
-        {
-            MetroFramework.MetroMessageBox.Show(ParentForm, "some message");
         }
 
         void UserControl1_ParentChanged(object sender, EventArgs e)
@@ -34,8 +28,6 @@ namespace metrostylegui
                 Parent.Resize += Parent_Resize;
                 Parent_Resize(sender, e);
             }
-            else
-                Parent.Resize -= Parent_Resize;
         }
 
         void Parent_Resize(object sender, EventArgs e)
@@ -47,8 +39,8 @@ namespace metrostylegui
             }
         }
 
-        public string Login { get { return metroTextBox1.Text; } }
-        public string Pwd { get { return metroTextBox2.Text; } }
+        public string Login { get { return tLogin.Text; } }
+        public string Pwd { get { return tPwd.Text; } }
 
         protected override void OnResize(EventArgs e)
         {
@@ -60,11 +52,30 @@ namespace metrostylegui
             base.OnPaint(e);
         }
 
-        private async void metroButton1_Click(object sender, EventArgs e)
+        private async void bLog_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(Login) || string.IsNullOrWhiteSpace(Pwd)) return;
             DmsDatabase.DmsUser user = await Task<DmsDatabase.DmsUser>.Run(() => DmsDatabase.DmsUser.GetUser(Login, Pwd));
-            if (user != null) this.Parent.Controls.Remove(this);
+            OnUserChanged(user);
+            //if (user != null) this.Parent.Controls.Remove(this);
         }
+
+        public event EventHandler<UserChangedArgs> UserChanged;
+        private void OnUserChanged(DmsDatabase.DmsUser user)
+        {
+            if (user != null && UserChanged != null)
+            {
+                UserChanged(this, new UserChangedArgs() { User = user });
+            }
+        }
+
+        private void tLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                bLog_Click(sender, e);
+            }
+        }
+
     }
 }

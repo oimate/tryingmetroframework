@@ -31,8 +31,14 @@ namespace metrostylegui
         void MainForm_Load(object sender, System.EventArgs e)
         {
             this.uc1 = new UserControl1();
-            this.metroPanel1.Controls.Add(this.uc1);
+            this.uc1.UserChanged += uc1_UserChanged;
+            this.metroTabPage1.Controls.Add(this.uc1);
             uc1.Focus();
+        }
+
+        void uc1_UserChanged(object sender, UserChangedArgs e)
+        {
+            metroTabPage1.Text = e.User.Name;
         }
     }
 }

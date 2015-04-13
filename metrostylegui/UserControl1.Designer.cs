@@ -28,168 +28,174 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel8.SuspendLayout();
-            this.metroPanel9.SuspendLayout();
-            this.metroPanel7.SuspendLayout();
+            this.panelbody = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.bLog = new MetroFramework.Controls.MetroButton();
+            this.lLogin = new MetroFramework.Controls.MetroLabel();
+            this.lPwd = new MetroFramework.Controls.MetroLabel();
+            this.tPwd = new MetroFramework.Controls.MetroTextBox();
+            this.tLogin = new MetroFramework.Controls.MetroTextBox();
+            this.panelbody.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // metroPanel8
+            // panelbody
             // 
-            this.metroPanel8.Controls.Add(this.metroPanel9);
-            this.metroPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel8.HorizontalScrollbarBarColor = true;
-            this.metroPanel8.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel8.HorizontalScrollbarSize = 10;
-            this.metroPanel8.Location = new System.Drawing.Point(0, 0);
-            this.metroPanel8.Name = "metroPanel8";
-            this.metroPanel8.Padding = new System.Windows.Forms.Padding(2);
-            this.metroPanel8.Size = new System.Drawing.Size(240, 100);
-            this.metroPanel8.TabIndex = 7;
-            this.metroPanel8.UseStyleColors = true;
-            this.metroPanel8.VerticalScrollbarBarColor = true;
-            this.metroPanel8.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel8.VerticalScrollbarSize = 10;
+            this.panelbody.BackColor = System.Drawing.Color.Transparent;
+            this.panelbody.Controls.Add(this.tableLayoutPanel1);
+            this.panelbody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelbody.Location = new System.Drawing.Point(0, 0);
+            this.panelbody.Margin = new System.Windows.Forms.Padding(0);
+            this.panelbody.Name = "panelbody";
+            this.panelbody.Size = new System.Drawing.Size(600, 110);
+            this.panelbody.TabIndex = 8;
             // 
-            // metroPanel9
+            // tableLayoutPanel1
             // 
-            this.metroPanel9.Controls.Add(this.metroPanel7);
-            this.metroPanel9.Controls.Add(this.metroTextBox1);
-            this.metroPanel9.Controls.Add(this.metroTextBox2);
-            this.metroPanel9.Controls.Add(this.metroLabel2);
-            this.metroPanel9.Controls.Add(this.metroLabel1);
-            this.metroPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel9.HorizontalScrollbarBarColor = true;
-            this.metroPanel9.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel9.HorizontalScrollbarSize = 10;
-            this.metroPanel9.Location = new System.Drawing.Point(2, 2);
-            this.metroPanel9.Name = "metroPanel9";
-            this.metroPanel9.Padding = new System.Windows.Forms.Padding(10, 4, 10, 4);
-            this.metroPanel9.Size = new System.Drawing.Size(236, 96);
-            this.metroPanel9.TabIndex = 10;
-            this.metroPanel9.UseStyleColors = true;
-            this.metroPanel9.VerticalScrollbarBarColor = true;
-            this.metroPanel9.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel9.VerticalScrollbarSize = 10;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lLogin, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lPwd, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tPwd, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tLogin, 2, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 110);
+            this.tableLayoutPanel1.TabIndex = 12;
             // 
-            // metroPanel7
+            // tableLayoutPanel2
             // 
-            this.metroPanel7.Controls.Add(this.metroButton1);
-            this.metroPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel7.HorizontalScrollbarBarColor = true;
-            this.metroPanel7.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel7.HorizontalScrollbarSize = 10;
-            this.metroPanel7.Location = new System.Drawing.Point(10, 52);
-            this.metroPanel7.Name = "metroPanel7";
-            this.metroPanel7.Padding = new System.Windows.Forms.Padding(5);
-            this.metroPanel7.Size = new System.Drawing.Size(216, 40);
-            this.metroPanel7.TabIndex = 11;
-            this.metroPanel7.UseStyleColors = true;
-            this.metroPanel7.VerticalScrollbarBarColor = true;
-            this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel7.VerticalScrollbarSize = 10;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.bLog, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 80);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 30);
+            this.tableLayoutPanel2.TabIndex = 13;
             // 
-            // metroButton1
+            // bLog
             // 
-            this.metroButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroButton1.Location = new System.Drawing.Point(5, 5);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(206, 30);
-            this.metroButton1.TabIndex = 0;
-            this.metroButton1.TabStop = false;
-            this.metroButton1.Text = "Login!";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.UseStyleColors = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            this.bLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bLog.BackColor = System.Drawing.Color.ForestGreen;
+            this.bLog.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.bLog.Location = new System.Drawing.Point(153, 4);
+            this.bLog.Name = "bLog";
+            this.bLog.Size = new System.Drawing.Size(144, 22);
+            this.bLog.TabIndex = 0;
+            this.bLog.Text = "Login!";
+            this.bLog.UseSelectable = true;
+            this.bLog.Click += new System.EventHandler(this.bLog_Click);
             // 
-            // metroTextBox1
+            // lLogin
             // 
-            this.metroTextBox1.DisplayIcon = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(83, 5);
-            this.metroTextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.Size = new System.Drawing.Size(143, 22);
-            this.metroTextBox1.TabIndex = 0;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.UseStyleColors = true;
-            this.metroTextBox1.WordWrap = false;
+            this.lLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lLogin.Location = new System.Drawing.Point(150, 24);
+            this.lLogin.Margin = new System.Windows.Forms.Padding(0);
+            this.lLogin.Name = "lLogin";
+            this.lLogin.Size = new System.Drawing.Size(100, 22);
+            this.lLogin.TabIndex = 6;
+            this.lLogin.Text = "Login:";
+            this.lLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lLogin.UseStyleColors = true;
             // 
-            // metroTextBox2
+            // lPwd
             // 
-            this.metroTextBox2.DisplayIcon = false;
-            this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(83, 29);
-            this.metroTextBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.metroTextBox2.MaxLength = 32767;
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PasswordChar = '\0';
-            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox2.SelectedText = "";
-            this.metroTextBox2.Size = new System.Drawing.Size(143, 22);
-            this.metroTextBox2.TabIndex = 1;
-            this.metroTextBox2.UseSelectable = true;
-            this.metroTextBox2.UseStyleColors = true;
-            this.metroTextBox2.WordWrap = false;
+            this.lPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lPwd.Location = new System.Drawing.Point(150, 54);
+            this.lPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.lPwd.Name = "lPwd";
+            this.lPwd.Size = new System.Drawing.Size(100, 22);
+            this.lPwd.TabIndex = 7;
+            this.lPwd.Text = "Password:";
+            this.lPwd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lPwd.UseStyleColors = true;
             // 
-            // metroLabel2
+            // tPwd
             // 
-            this.metroLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroLabel2.Location = new System.Drawing.Point(10, 28);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(216, 24);
-            this.metroLabel2.TabIndex = 7;
-            this.metroLabel2.Text = "Password:";
-            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroLabel2.UseStyleColors = true;
+            this.tPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tPwd.Lines = new string[0];
+            this.tPwd.Location = new System.Drawing.Point(250, 54);
+            this.tPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.tPwd.MaxLength = 32767;
+            this.tPwd.Name = "tPwd";
+            this.tPwd.PasswordChar = '\0';
+            this.tPwd.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tPwd.SelectedText = "";
+            this.tPwd.Size = new System.Drawing.Size(200, 22);
+            this.tPwd.TabIndex = 1;
+            this.tPwd.UseSelectable = true;
+            this.tPwd.UseStyleColors = true;
+            this.tPwd.WordWrap = false;
+            this.tPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tLogin_KeyPress);
             // 
-            // metroLabel1
+            // tLogin
             // 
-            this.metroLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroLabel1.Location = new System.Drawing.Point(10, 4);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(216, 24);
-            this.metroLabel1.TabIndex = 6;
-            this.metroLabel1.Text = "Login:";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroLabel1.UseStyleColors = true;
+            this.tLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tLogin.Lines = new string[0];
+            this.tLogin.Location = new System.Drawing.Point(250, 24);
+            this.tLogin.Margin = new System.Windows.Forms.Padding(0);
+            this.tLogin.MaxLength = 32767;
+            this.tLogin.Name = "tLogin";
+            this.tLogin.PasswordChar = '\0';
+            this.tLogin.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tLogin.SelectedText = "";
+            this.tLogin.Size = new System.Drawing.Size(200, 22);
+            this.tLogin.TabIndex = 0;
+            this.tLogin.UseSelectable = true;
+            this.tLogin.UseStyleColors = true;
+            this.tLogin.WordWrap = false;
+            this.tLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tLogin_KeyPress);
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.metroPanel8);
+            this.Controls.Add(this.panelbody);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(240, 100);
-            this.metroPanel8.ResumeLayout(false);
-            this.metroPanel9.ResumeLayout(false);
-            this.metroPanel7.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(600, 110);
+            this.panelbody.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroPanel metroPanel8;
-        private MetroFramework.Controls.MetroPanel metroPanel9;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroPanel metroPanel7;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Panel panelbody;
+        private MetroFramework.Controls.MetroButton bLog;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MetroFramework.Controls.MetroLabel lLogin;
+        private MetroFramework.Controls.MetroLabel lPwd;
+        private MetroFramework.Controls.MetroTextBox tPwd;
+        private MetroFramework.Controls.MetroTextBox tLogin;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+
 
     }
 }

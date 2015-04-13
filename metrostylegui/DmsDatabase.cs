@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 namespace metrostylegui
 {
     public delegate void DmsConnectionLostEventHandler(DmsConnectionLostEventArgs e);
-    class DmsDatabase
+    public class DmsDatabase
     {
         public ConnectionState ConnectionState { get; set; }
 
@@ -29,7 +29,41 @@ namespace metrostylegui
             public long Id
             {
                 get { return id; }
-                set { id = value; }
+                private set { id = value; }
+            }
+            
+            private string name, firstname, lastname, displayname;
+
+            public string Displayname
+            {
+                get { return displayname; }
+                set { displayname = value; }
+            }
+
+            public string Lastname
+            {
+                get { return lastname; }
+                set { lastname = value; }
+            }
+
+            public string Firstname
+            {
+                get { return firstname; }
+                set { firstname = value; }
+            }
+
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
+
+            DateTime lastlogin;
+
+            public DateTime Lastlogin
+            {
+                get { return lastlogin; }
+                set { lastlogin = value; }
             }
 
             public static DmsUser GetUser(string login, string pwd)
@@ -44,9 +78,16 @@ namespace metrostylegui
                             long? id = adapter.Login(login, pwd);
                             if (id.HasValue)
                             {
+                                var usera = adapter.GetUserById(id.Value);
+                                if (usera[0].Islast_loginNull()) usera[0].last_login = DateTime.MinValue;
                                 return new DmsUser()
                                 {
-                                    Id = id.Value
+                                    Id = id.Value,
+                                    Name = usera[0].login_name,
+                                    Displayname = usera[0].display_name,
+                                    Lastlogin = usera[0].last_login,
+                                    Firstname = usera[0].firstname,
+                                    Lastname = usera[0].lastname,
                                 };
                             }
                         }
