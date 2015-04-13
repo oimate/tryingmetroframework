@@ -39,3 +39,12 @@ E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\trying
 E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.exe.config
 E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.exe
 E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.pdb
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.exe
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\bin\Debug\metrostylegui.pdb
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.csprojResolveAssemblyReference.cache
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.MainForm.resources
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.Properties.Resources.resources
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.TopBar.resources
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl1.resources
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.UserControl2.resources
+E:\2. Work\1. Projects\1. Actual Project\8. Rython Jaguar\3. C#\4.Wspolne\1. Actual\tryingmetroframework\metrostylegui\obj\Debug\metrostylegui.csproj.GenerateResource.Cache
