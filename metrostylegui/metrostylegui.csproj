@@ -33,13 +33,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework">
-      <HintPath>..\..\..\..\GitHub\metro.dll\MetroFramework.dll</HintPath>
+      <HintPath>..\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Design">
-      <HintPath>..\..\..\..\GitHub\metro.dll\MetroFramework.Design.dll</HintPath>
+      <HintPath>..\MetroFramework.Design.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Fonts">
-      <HintPath>..\..\..\..\GitHub\metro.dll\MetroFramework.Fonts.dll</HintPath>
+      <HintPath>..\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
