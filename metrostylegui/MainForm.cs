@@ -38,7 +38,7 @@ namespace metrostylegui
 
         void uc1_UserChanged(object sender, UserChangedArgs e)
         {
-            metroTabPage1.Text = e.User.Name;
+            metroTabPage1.Text = e.User.Displayname;
         }
     }
 }
