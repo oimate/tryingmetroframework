@@ -75,7 +75,7 @@ namespace metrostylegui
                     {
                         using (UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter adapter = new UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter())
                         {
-                            long? id = adapter.Login(login, pwd);
+                            long? id = adapter.Login(login, Obfuscation.Code(login, pwd));
                             if (id.HasValue)
                             {
                                 UserDataSet.DS_PrmUser_TABDataTable usera = adapter.GetUserById(id.Value);

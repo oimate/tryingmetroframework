@@ -767,11 +767,11 @@ namespace metrostylegui {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string firstname {
                 get {
-                    try {
-                        return ((string)(this[this.tableDS_PrmUser_TAB.firstnameColumn]));
+                    if (this.IsfirstnameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'firstname\' in table \'DS_PrmUser_TAB\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableDS_PrmUser_TAB.firstnameColumn]));
                     }
                 }
                 set {
@@ -783,11 +783,11 @@ namespace metrostylegui {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string lastname {
                 get {
-                    try {
-                        return ((string)(this[this.tableDS_PrmUser_TAB.lastnameColumn]));
+                    if (this.IslastnameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'lastname\' in table \'DS_PrmUser_TAB\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableDS_PrmUser_TAB.lastnameColumn]));
                     }
                 }
                 set {
@@ -799,11 +799,11 @@ namespace metrostylegui {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string display_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableDS_PrmUser_TAB.display_nameColumn]));
+                    if (this.Isdisplay_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'display_name\' in table \'DS_PrmUser_TAB\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableDS_PrmUser_TAB.display_nameColumn]));
                     }
                 }
                 set {

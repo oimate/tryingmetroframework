@@ -166,7 +166,7 @@ Where login_name=@login and pwd=@pwd</CommandText>
   <xs:element name="UserDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="UserDataSet" msprop:Generator_UserDSName="UserDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DS_PrmUser_TAB" msprop:Generator_TableClassName="DS_PrmUser_TABDataTable" msprop:Generator_TableVarName="tableDS_PrmUser_TAB" msprop:Generator_RowChangedName="DS_PrmUser_TABRowChanged" msprop:Generator_TablePropName="DS_PrmUser_TAB" msprop:Generator_RowDeletingName="DS_PrmUser_TABRowDeleting" msprop:Generator_RowChangingName="DS_PrmUser_TABRowChanging" msprop:Generator_RowEvHandlerName="DS_PrmUser_TABRowChangeEventHandler" msprop:Generator_RowDeletedName="DS_PrmUser_TABRowDeleted" msprop:Generator_RowClassName="DS_PrmUser_TABRow" msprop:Generator_UserTableName="DS_PrmUser_TAB" msprop:Generator_RowEvArgName="DS_PrmUser_TABRowChangeEvent">
+        <xs:element name="DS_PrmUser_TAB" msprop:Generator_TableClassName="DS_PrmUser_TABDataTable" msprop:Generator_TableVarName="tableDS_PrmUser_TAB" msprop:Generator_TablePropName="DS_PrmUser_TAB" msprop:Generator_RowDeletingName="DS_PrmUser_TABRowDeleting" msprop:Generator_RowChangingName="DS_PrmUser_TABRowChanging" msprop:Generator_RowEvHandlerName="DS_PrmUser_TABRowChangeEventHandler" msprop:Generator_RowDeletedName="DS_PrmUser_TABRowDeleted" msprop:Generator_UserTableName="DS_PrmUser_TAB" msprop:Generator_RowChangedName="DS_PrmUser_TABRowChanged" msprop:Generator_RowEvArgName="DS_PrmUser_TABRowChangeEvent" msprop:Generator_RowClassName="DS_PrmUser_TABRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
@@ -177,21 +177,21 @@ Where login_name=@login and pwd=@pwd</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="firstname" msprop:Generator_ColumnVarNameInTable="columnfirstname" msprop:Generator_ColumnPropNameInRow="firstname" msprop:Generator_ColumnPropNameInTable="firstnameColumn" msprop:Generator_UserColumnName="firstname" minOccurs="0">
+              <xs:element name="firstname" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="firstname" msprop:Generator_ColumnVarNameInTable="columnfirstname" msprop:Generator_ColumnPropNameInTable="firstnameColumn" msprop:Generator_UserColumnName="firstname" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="lastname" msprop:Generator_ColumnVarNameInTable="columnlastname" msprop:Generator_ColumnPropNameInRow="lastname" msprop:Generator_ColumnPropNameInTable="lastnameColumn" msprop:Generator_UserColumnName="lastname" minOccurs="0">
+              <xs:element name="lastname" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="lastname" msprop:Generator_ColumnVarNameInTable="columnlastname" msprop:Generator_ColumnPropNameInTable="lastnameColumn" msprop:Generator_UserColumnName="lastname" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="display_name" msprop:Generator_ColumnVarNameInTable="columndisplay_name" msprop:Generator_ColumnPropNameInRow="display_name" msprop:Generator_ColumnPropNameInTable="display_nameColumn" msprop:Generator_UserColumnName="display_name" minOccurs="0">
+              <xs:element name="display_name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="display_name" msprop:Generator_ColumnVarNameInTable="columndisplay_name" msprop:Generator_ColumnPropNameInTable="display_nameColumn" msprop:Generator_UserColumnName="display_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="256" />
