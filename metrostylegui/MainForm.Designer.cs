@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.tabsMain = new MetroFramework.Controls.MetroTabControl();
             this.tabLogin = new MetroFramework.Controls.MetroTabPage();
-            this.tabErp = new MetroFramework.Controls.MetroTabPage();
+            this.tabStatus = new MetroFramework.Controls.MetroTabPage();
             this.tlpErp = new System.Windows.Forms.TableLayoutPanel();
-            this.gridErp = new MetroFramework.Controls.MetroGrid();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.tabsMain.SuspendLayout();
-            this.tabErp.SuspendLayout();
+            this.tabStatus.SuspendLayout();
             this.tlpErp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridErp)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel1
@@ -62,14 +59,15 @@
             // tabsMain
             // 
             this.tabsMain.Controls.Add(this.tabLogin);
-            this.tabsMain.Controls.Add(this.tabErp);
+            this.tabsMain.Controls.Add(this.tabStatus);
             this.tabsMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabsMain.ItemSize = new System.Drawing.Size(100, 30);
             this.tabsMain.Location = new System.Drawing.Point(0, 0);
+            this.tabsMain.Multiline = true;
             this.tabsMain.Name = "tabsMain";
-            this.tabsMain.SelectedIndex = 0;
+            this.tabsMain.SelectedIndex = 1;
             this.tabsMain.Size = new System.Drawing.Size(790, 535);
-            this.tabsMain.TabIndex = 1;
+            this.tabsMain.TabIndex = 0;
             this.tabsMain.UseSelectable = true;
             this.tabsMain.UseStyleColors = true;
             // 
@@ -87,85 +85,70 @@
             this.tabLogin.VerticalScrollbarHighlightOnWheel = false;
             this.tabLogin.VerticalScrollbarSize = 10;
             // 
-            // tabErp
+            // tabStatus
             // 
-            this.tabErp.Controls.Add(this.tlpErp);
-            this.tabErp.HorizontalScrollbarBarColor = true;
-            this.tabErp.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabErp.HorizontalScrollbarSize = 10;
-            this.tabErp.Location = new System.Drawing.Point(4, 34);
-            this.tabErp.Name = "tabErp";
-            this.tabErp.Size = new System.Drawing.Size(782, 497);
-            this.tabErp.TabIndex = 1;
-            this.tabErp.Text = "View ERP";
-            this.tabErp.VerticalScrollbarBarColor = true;
-            this.tabErp.VerticalScrollbarHighlightOnWheel = false;
-            this.tabErp.VerticalScrollbarSize = 10;
+            this.tabStatus.Controls.Add(this.tlpErp);
+            this.tabStatus.HorizontalScrollbarBarColor = true;
+            this.tabStatus.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabStatus.HorizontalScrollbarSize = 10;
+            this.tabStatus.Location = new System.Drawing.Point(4, 34);
+            this.tabStatus.Name = "tabStatus";
+            this.tabStatus.Size = new System.Drawing.Size(782, 497);
+            this.tabStatus.TabIndex = 1;
+            this.tabStatus.Text = "Status";
+            this.tabStatus.VerticalScrollbarBarColor = true;
+            this.tabStatus.VerticalScrollbarHighlightOnWheel = false;
+            this.tabStatus.VerticalScrollbarSize = 10;
             // 
             // tlpErp
             // 
             this.tlpErp.BackColor = System.Drawing.Color.Transparent;
-            this.tlpErp.ColumnCount = 2;
-            this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpErp.Controls.Add(this.gridErp, 0, 1);
+            this.tlpErp.ColumnCount = 4;
+            this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpErp.Controls.Add(this.metroTile2, 2, 1);
+            this.tlpErp.Controls.Add(this.metroTile1, 1, 1);
             this.tlpErp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpErp.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tlpErp.Location = new System.Drawing.Point(0, 0);
             this.tlpErp.Name = "tlpErp";
-            this.tlpErp.RowCount = 2;
+            this.tlpErp.RowCount = 6;
+            this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpErp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpErp.Size = new System.Drawing.Size(782, 497);
-            this.tlpErp.TabIndex = 3;
+            this.tlpErp.TabIndex = 0;
             // 
-            // gridErp
+            // metroTile1
             // 
-            this.gridErp.AllowUserToAddRows = false;
-            this.gridErp.AllowUserToDeleteRows = false;
-            this.gridErp.AllowUserToOrderColumns = true;
-            this.gridErp.AllowUserToResizeRows = false;
-            this.gridErp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridErp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridErp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gridErp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridErp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridErp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridErp.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gridErp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridErp.EnableHeadersVisualStyles = false;
-            this.gridErp.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.gridErp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridErp.Location = new System.Drawing.Point(3, 43);
-            this.gridErp.Name = "gridErp";
-            this.gridErp.ReadOnly = true;
-            this.gridErp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridErp.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridErp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridErp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridErp.Size = new System.Drawing.Size(619, 451);
-            this.gridErp.TabIndex = 3;
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTile1.Location = new System.Drawing.Point(194, 171);
+            this.metroTile1.Name = "metroTile1";
+            this.tlpErp.SetRowSpan(this.metroTile1, 4);
+            this.metroTile1.Size = new System.Drawing.Size(194, 154);
+            this.metroTile1.TabIndex = 0;
+            this.metroTile1.Text = "PLC Status";
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseStyleColors = true;
+            // 
+            // metroTile2
+            // 
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTile2.Location = new System.Drawing.Point(394, 171);
+            this.metroTile2.Name = "metroTile2";
+            this.tlpErp.SetRowSpan(this.metroTile2, 4);
+            this.metroTile2.Size = new System.Drawing.Size(194, 154);
+            this.metroTile2.TabIndex = 1;
+            this.metroTile2.Text = "Database Status";
+            this.metroTile2.UseSelectable = true;
+            this.metroTile2.UseStyleColors = true;
             // 
             // MainForm
             // 
@@ -180,9 +163,8 @@
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.metroPanel1.ResumeLayout(false);
             this.tabsMain.ResumeLayout(false);
-            this.tabErp.ResumeLayout(false);
+            this.tabStatus.ResumeLayout(false);
             this.tlpErp.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridErp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -192,9 +174,10 @@
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroTabControl tabsMain;
         private MetroFramework.Controls.MetroTabPage tabLogin;
-        private MetroFramework.Controls.MetroTabPage tabErp;
+        private MetroFramework.Controls.MetroTabPage tabStatus;
         private System.Windows.Forms.TableLayoutPanel tlpErp;
-        private MetroFramework.Controls.MetroGrid gridErp;
+        private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile metroTile1;
 
 
 

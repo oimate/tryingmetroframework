@@ -94,7 +94,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 242);
-            this.tableLayoutPanel1.TabIndex = 12;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -116,7 +116,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 30);
-            this.tableLayoutPanel2.TabIndex = 13;
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // bLog
             // 
@@ -138,7 +138,7 @@
             this.lLogin.Margin = new System.Windows.Forms.Padding(0);
             this.lLogin.Name = "lLogin";
             this.lLogin.Size = new System.Drawing.Size(90, 22);
-            this.lLogin.TabIndex = 6;
+            this.lLogin.TabIndex = 3;
             this.lLogin.Text = "Login:";
             this.lLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lLogin.UseStyleColors = true;
@@ -150,7 +150,7 @@
             this.lPwd.Margin = new System.Windows.Forms.Padding(0);
             this.lPwd.Name = "lPwd";
             this.lPwd.Size = new System.Drawing.Size(90, 22);
-            this.lPwd.TabIndex = 7;
+            this.lPwd.TabIndex = 4;
             this.lPwd.Text = "Password:";
             this.lPwd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lPwd.UseStyleColors = true;
@@ -167,7 +167,7 @@
             this.tPwd.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tPwd.SelectedText = "";
             this.tPwd.Size = new System.Drawing.Size(210, 22);
-            this.tPwd.TabIndex = 1;
+            this.tPwd.TabIndex = 11;
             this.tPwd.UseSelectable = true;
             this.tPwd.UseStyleColors = true;
             this.tPwd.WordWrap = false;
@@ -185,7 +185,7 @@
             this.tLogin.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tLogin.SelectedText = "";
             this.tLogin.Size = new System.Drawing.Size(210, 22);
-            this.tLogin.TabIndex = 0;
+            this.tLogin.TabIndex = 10;
             this.tLogin.UseSelectable = true;
             this.tLogin.UseStyleColors = true;
             this.tLogin.WordWrap = false;
@@ -199,7 +199,8 @@
             this.metroProgressSpinner1.Name = "metroProgressSpinner1";
             this.tableLayoutPanel1.SetRowSpan(this.metroProgressSpinner1, 3);
             this.metroProgressSpinner1.Size = new System.Drawing.Size(102, 84);
-            this.metroProgressSpinner1.TabIndex = 14;
+            this.metroProgressSpinner1.TabIndex = 6;
+            this.metroProgressSpinner1.TabStop = false;
             this.metroProgressSpinner1.UseSelectable = true;
             this.metroProgressSpinner1.UseStyleColors = true;
             this.metroProgressSpinner1.Visible = false;
@@ -211,7 +212,7 @@
             this.ILastLogin.Margin = new System.Windows.Forms.Padding(0);
             this.ILastLogin.Name = "ILastLogin";
             this.ILastLogin.Size = new System.Drawing.Size(90, 22);
-            this.ILastLogin.TabIndex = 15;
+            this.ILastLogin.TabIndex = 2;
             this.ILastLogin.Text = "Last Login:";
             this.ILastLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ILastLogin.UseStyleColors = true;
@@ -224,7 +225,7 @@
             this.ILastName.Margin = new System.Windows.Forms.Padding(0);
             this.ILastName.Name = "ILastName";
             this.ILastName.Size = new System.Drawing.Size(90, 22);
-            this.ILastName.TabIndex = 16;
+            this.ILastName.TabIndex = 1;
             this.ILastName.Text = "Last Name:";
             this.ILastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ILastName.UseStyleColors = true;
@@ -242,7 +243,7 @@
             this.tlastname.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tlastname.SelectedText = "";
             this.tlastname.Size = new System.Drawing.Size(210, 22);
-            this.tlastname.TabIndex = 17;
+            this.tlastname.TabIndex = 8;
             this.tlastname.UseSelectable = true;
             this.tlastname.UseStyleColors = true;
             this.tlastname.Visible = false;
@@ -260,7 +261,7 @@
             this.tlastlogin.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tlastlogin.SelectedText = "";
             this.tlastlogin.Size = new System.Drawing.Size(210, 22);
-            this.tlastlogin.TabIndex = 18;
+            this.tlastlogin.TabIndex = 9;
             this.tlastlogin.UseSelectable = true;
             this.tlastlogin.UseStyleColors = true;
             this.tlastlogin.Visible = false;
@@ -278,7 +279,7 @@
             this.tfirstname.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tfirstname.SelectedText = "";
             this.tfirstname.Size = new System.Drawing.Size(210, 22);
-            this.tfirstname.TabIndex = 19;
+            this.tfirstname.TabIndex = 7;
             this.tfirstname.UseSelectable = true;
             this.tfirstname.UseStyleColors = true;
             this.tfirstname.Visible = false;
@@ -291,7 +292,7 @@
             this.IFirstName.Margin = new System.Windows.Forms.Padding(0);
             this.IFirstName.Name = "IFirstName";
             this.IFirstName.Size = new System.Drawing.Size(90, 22);
-            this.IFirstName.TabIndex = 20;
+            this.IFirstName.TabIndex = 0;
             this.IFirstName.Text = "First Name:";
             this.IFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.IFirstName.UseStyleColors = true;

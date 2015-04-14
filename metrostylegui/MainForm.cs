@@ -10,8 +10,9 @@ namespace metrostylegui
         public MainForm()
         {
             InitializeComponent();
-
             this.Load += MainForm_Load;
+
+            tabsMain.SelectedTab = tabLogin;
         }
 
         private void ResizeUC(MetroUserControl uc)
