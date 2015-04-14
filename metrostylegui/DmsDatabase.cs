@@ -32,7 +32,13 @@ namespace metrostylegui
                 private set { id = value; }
             }
 
-            private string name, firstname, lastname, displayname;
+            private string name, firstname, lastname, displayname, pwd;
+
+            public string Pwd
+            {
+                get { return pwd; }
+                set { pwd = value; }
+            }
 
             public string Displayname
             {
@@ -71,28 +77,27 @@ namespace metrostylegui
                 DmsUser user = null;
                 try
                 {
-                    using (UserDataSet userDataSet = new UserDataSet())
+                    using (UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter adapter = new UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter())
                     {
-                        using (UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter adapter = new UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter())
+                        long? id = adapter.Login(login, Obfuscation.Code(login, pwd));
+                        if (id.HasValue)
                         {
-                            long? id = adapter.Login(login, Obfuscation.Code(login, pwd));
-                            if (id.HasValue)
+                            UserDataSet.DS_PrmUser_TABDataTable usera = adapter.GetUserById(id.Value);
+                            if (usera[0].Islast_loginNull()) usera[0].last_login = DateTime.MinValue;
+                            usera[0].last_login = (usera[0].Islast_loginNull()) ? DateTime.MinValue : usera[0].last_login;
+                            var val = adapter.UpdateLastLogin(DateTime.Now, id.Value);
+                            return new DmsUser()
                             {
-                                UserDataSet.DS_PrmUser_TABDataTable usera = adapter.GetUserById(id.Value);
-                                if (usera[0].Islast_loginNull()) usera[0].last_login = DateTime.MinValue;
-                                usera[0].last_login = (usera[0].Islast_loginNull()) ? DateTime.MinValue : usera[0].last_login;
-                                var val = adapter.UpdateLastLogin(DateTime.Now, id.Value);
-                                return new DmsUser()
-                                {
-                                    Id = id.Value,
-                                    Name = usera[0].login_name,
-                                    Displayname = (string.IsNullOrWhiteSpace(usera[0].display_name)) ? usera[0].login_name : usera[0].display_name,
-                                    Lastlogin = usera[0].last_login,
-                                    Firstname = usera[0].firstname,
-                                    Lastname = usera[0].lastname,
-                                };
-                            }
+                                Id = id.Value,
+                                Name = usera[0].login_name,
+                                Displayname = (string.IsNullOrWhiteSpace(usera[0].display_name)) ? usera[0].login_name : usera[0].display_name,
+                                Lastlogin = usera[0].last_login,
+                                Firstname = usera[0].firstname,
+                                Lastname = usera[0].lastname,
+                                Pwd = usera[0].pwd,
+                            };
                         }
+
                     }
                 }
                 catch (SqlException sqlex)
@@ -117,8 +122,29 @@ namespace metrostylegui
                 }
                 return user;
             }
+
+            public static void SaveUser(DmsUser user)
+            {
+                if (user == null)
+                    return;
+                using (UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter adapter = new UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter())
+                {
+                    try
+                    {
+                        adapter.UpdateUserById(user.name, user.firstname, user.lastname, user.displayname, user.pwd, user.id);
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
+                }
+
+            }
         }
     }
+
+
+
 
     public class DmsConnectionLostEventArgs
     {

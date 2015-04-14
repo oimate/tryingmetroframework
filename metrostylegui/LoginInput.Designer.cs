@@ -43,6 +43,7 @@
             this.tlastlogin = new MetroFramework.Controls.MetroTextBox();
             this.tfirstname = new MetroFramework.Controls.MetroTextBox();
             this.IFirstName = new MetroFramework.Controls.MetroLabel();
+            this.bUpdate = new MetroFramework.Controls.MetroButton();
             this.panelbody.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -104,6 +105,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.bUpdate, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.bLog, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
@@ -298,6 +300,20 @@
             this.IFirstName.UseStyleColors = true;
             this.IFirstName.Visible = false;
             // 
+            // bUpdate
+            // 
+            this.bUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bUpdate.BackColor = System.Drawing.Color.ForestGreen;
+            this.bUpdate.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.bUpdate.Location = new System.Drawing.Point(3, 4);
+            this.bUpdate.Name = "bUpdate";
+            this.bUpdate.Size = new System.Drawing.Size(144, 22);
+            this.bUpdate.TabIndex = 1;
+            this.bUpdate.Text = "Update";
+            this.bUpdate.UseSelectable = true;
+            this.bUpdate.Visible = false;
+            this.bUpdate.Click += new System.EventHandler(this.bUpdate_Click);
+            // 
             // LoginInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +346,7 @@
         private MetroFramework.Controls.MetroTextBox tlastlogin;
         private MetroFramework.Controls.MetroTextBox tfirstname;
         private MetroFramework.Controls.MetroLabel IFirstName;
+        private MetroFramework.Controls.MetroButton bUpdate;
 
 
     }

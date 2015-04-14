@@ -1131,7 +1131,7 @@ namespace metrostylegui.UserDataSetTableAdapters {
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class DS_PrmUser_TABTableAdapter : global::System.ComponentModel.Component {
-        
+ 
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
         private global::System.Data.SqlClient.SqlConnection _connection;
@@ -1377,7 +1377,7 @@ SELECT id, login_name, firstname, lastname, display_name, pwd, email, descriptio
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, login_name, firstname, lastname, display_name, pwd, email, description" +
@@ -1402,6 +1402,18 @@ SELECT id, login_name, firstname, lastname, display_name, pwd, email, descriptio
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_login", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "last_login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE       DS_PrmUser_TAB\r\nSET                login_name = @login_name, firstna" +
+                "me = @firstname, lastname = @lastname, display_name = @display_name, pwd = @pwd\r" +
+                "\nWHERE        (id = @Id) \r\n";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@login_name", global::System.Data.SqlDbType.NVarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "login_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstname", global::System.Data.SqlDbType.NVarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "firstname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastname", global::System.Data.SqlDbType.NVarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "lastname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@display_name", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "display_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pwd", global::System.Data.SqlDbType.NVarChar, 512, global::System.Data.ParameterDirection.Input, 0, 0, "pwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1990,6 +2002,60 @@ SELECT id, login_name, firstname, lastname, display_name, pwd, email, descriptio
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
             command.Parameters[1].Value = ((long)(Id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateUserById(string login_name, string firstname, string lastname, string display_name, string pwd, long Id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((login_name == null)) {
+                throw new global::System.ArgumentNullException("login_name");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(login_name));
+            }
+            if ((firstname == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(firstname));
+            }
+            if ((lastname == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(lastname));
+            }
+            if ((display_name == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(display_name));
+            }
+            if ((pwd == null)) {
+                throw new global::System.ArgumentNullException("pwd");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(pwd));
+            }
+            command.Parameters[5].Value = ((long)(Id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

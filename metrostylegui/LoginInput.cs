@@ -14,12 +14,13 @@ namespace metrostylegui
 {
     public partial class LoginInput : MetroUserControl
     {
+        DmsDatabase.DmsUser user;
         public LoginInput()
         {
             InitializeComponent();
             this.ParentChanged += UserControl1_ParentChanged;
         }
-        
+
         void UserControl1_ParentChanged(object sender, EventArgs e)
         {
             if (Parent != null && ParentForm != null)
@@ -47,7 +48,7 @@ namespace metrostylegui
 
             LoginInProggres(true);
 
-            DmsDatabase.DmsUser user = await Task<DmsDatabase.DmsUser>.Run(() => DmsDatabase.DmsUser.GetUser(Login, Pwd));
+            user = await Task<DmsDatabase.DmsUser>.Run(() => DmsDatabase.DmsUser.GetUser(Login, Pwd));
             LogState ls = (user != null) ? LogState.LoginOK : LogState.LoginNOK;
             OnUserChanged(user, ls);
             //if (user != null) this.Parent.Controls.Remove(this);
@@ -96,7 +97,7 @@ namespace metrostylegui
                 bLog.Click += bLogout_Click;
                 tLogin.Enabled = !p;
                 tPwd.Visible = !p;
-         //       lLogin.Visible = !p;
+                //       lLogin.Visible = !p;
                 lPwd.Visible = !p;
                 IFirstName.Visible = p;
                 ILastName.Visible = p;
@@ -104,8 +105,7 @@ namespace metrostylegui
                 tfirstname.Visible = p;
                 tlastname.Visible = p;
                 tlastlogin.Visible = p;
-        //        tfirstname.Text = 
-
+                UserInfo(user);
             }
             else
             {
@@ -114,7 +114,7 @@ namespace metrostylegui
                 bLog.Click += bLogin_Click;
                 tLogin.Enabled = !p;
                 tPwd.Visible = !p;
-       //         lLogin.Visible = !p;
+                //         lLogin.Visible = !p;
                 lPwd.Visible = !p;
                 IFirstName.Visible = p;
                 ILastName.Visible = p;
@@ -123,6 +123,15 @@ namespace metrostylegui
                 tlastname.Visible = p;
                 tlastlogin.Visible = p;
             }
+            bUpdate.Visible = p;
+
+        }
+
+        private void UserInfo(DmsDatabase.DmsUser user)
+        {
+            tfirstname.Text = user.Firstname;
+            tlastname.Text = user.Lastname;
+            tlastlogin.Text = Convert.ToString(user.Lastlogin);
         }
 
         private void bLogout_Click(object sender, EventArgs e)
@@ -143,6 +152,15 @@ namespace metrostylegui
             LoginOK,
             LoginNOK,
             Logout,
+        }
+
+        private async void bUpdate_Click(object sender, EventArgs e)
+        {
+            user.Firstname = tfirstname.Text;
+            user.Lastname = tlastname.Text;
+            metroProgressSpinner1.Visible = true;
+            await Task.Run(() => DmsDatabase.DmsUser.SaveUser(user));
+            metroProgressSpinner1.Visible = false;
         }
     }
 }
