@@ -78,7 +78,7 @@ namespace metrostylegui
                             long? id = adapter.Login(login, pwd);
                             if (id.HasValue)
                             {
-                                UserDataSet.DS_PrmUser_TABDataTable usera = adapter.GetUserById(id.Value);
+                                var usera = adapter.GetUserById(id.Value);
                                 if (usera[0].Islast_loginNull()) usera[0].last_login = DateTime.MinValue;
                                 return new DmsUser()
                                 {

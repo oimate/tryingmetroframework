@@ -20,6 +20,12 @@ namespace metrostylegui
 
             this.ParentChanged += UserControl1_ParentChanged;
         }
+
+        public void FirstFocus()
+        {
+            tLogin.Focus();
+        }
+
         void UserControl1_ParentChanged(object sender, EventArgs e)
         {
             if (Parent != null && ParentForm != null)
@@ -104,34 +110,20 @@ namespace metrostylegui
                 bLog.Text = "Logout";
                 bLog.Click -= bLogin_Click;
                 bLog.Click += bLogout_Click;
-                tLogin.Enabled = !p;
+                tLogin.Visible = !p;
                 tPwd.Visible = !p;
-         //       lLogin.Visible = !p;
+                lLogin.Visible = !p;
                 lPwd.Visible = !p;
-                IFirstName.Visible = p;
-                ILastName.Visible = p;
-                ILastLogin.Visible = p;
-                tfirstname.Visible = p;
-                tlastname.Visible = p;
-                tlastlogin.Visible = p;
-        //        tfirstname.Text = 
-
             }
             else
             {
                 bLog.Text = "Login!";
                 bLog.Click -= bLogout_Click;
                 bLog.Click += bLogin_Click;
-                tLogin.Enabled = !p;
+                tLogin.Visible = !p;
                 tPwd.Visible = !p;
-       //         lLogin.Visible = !p;
+                lLogin.Visible = !p;
                 lPwd.Visible = !p;
-                IFirstName.Visible = p;
-                ILastName.Visible = p;
-                ILastLogin.Visible = p;
-                tfirstname.Visible = p;
-                tlastname.Visible = p;
-                tlastlogin.Visible = p;
             }
         }
 
@@ -153,16 +145,6 @@ namespace metrostylegui
             LoginOK,
             LoginNOK,
             Logout,
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void metroLabel2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
