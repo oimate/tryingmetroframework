@@ -17,9 +17,9 @@ namespace metrostylegui
         public LoginInput()
         {
             InitializeComponent();
-
             this.ParentChanged += UserControl1_ParentChanged;
         }
+        
         void UserControl1_ParentChanged(object sender, EventArgs e)
         {
             if (Parent != null && ParentForm != null)
@@ -40,16 +40,6 @@ namespace metrostylegui
 
         public string Login { get { return tLogin.Text; } }
         public string Pwd { get { return tPwd.Text; } }
-
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-        }
 
         private async void bLogin_Click(object sender, EventArgs e)
         {
@@ -153,16 +143,6 @@ namespace metrostylegui
             LoginOK,
             LoginNOK,
             Logout,
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void metroLabel2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

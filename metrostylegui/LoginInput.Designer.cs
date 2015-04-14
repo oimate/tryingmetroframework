@@ -95,7 +95,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 242);
             this.tableLayoutPanel1.TabIndex = 12;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -108,7 +107,7 @@
             this.tableLayoutPanel2.Controls.Add(this.bLog, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 180);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(150, 150);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -135,7 +134,7 @@
             // lLogin
             // 
             this.lLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lLogin.Location = new System.Drawing.Point(150, 124);
+            this.lLogin.Location = new System.Drawing.Point(150, 94);
             this.lLogin.Margin = new System.Windows.Forms.Padding(0);
             this.lLogin.Name = "lLogin";
             this.lLogin.Size = new System.Drawing.Size(90, 22);
@@ -147,7 +146,7 @@
             // lPwd
             // 
             this.lPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lPwd.Location = new System.Drawing.Point(150, 154);
+            this.lPwd.Location = new System.Drawing.Point(150, 124);
             this.lPwd.Margin = new System.Windows.Forms.Padding(0);
             this.lPwd.Name = "lPwd";
             this.lPwd.Size = new System.Drawing.Size(90, 22);
@@ -160,7 +159,7 @@
             // 
             this.tPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tPwd.Lines = new string[0];
-            this.tPwd.Location = new System.Drawing.Point(240, 154);
+            this.tPwd.Location = new System.Drawing.Point(240, 124);
             this.tPwd.Margin = new System.Windows.Forms.Padding(0);
             this.tPwd.MaxLength = 32767;
             this.tPwd.Name = "tPwd";
@@ -178,7 +177,7 @@
             // 
             this.tLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tLogin.Lines = new string[0];
-            this.tLogin.Location = new System.Drawing.Point(240, 124);
+            this.tLogin.Location = new System.Drawing.Point(240, 94);
             this.tLogin.Margin = new System.Windows.Forms.Padding(0);
             this.tLogin.MaxLength = 32767;
             this.tLogin.Name = "tLogin";
@@ -195,11 +194,11 @@
             // metroProgressSpinner1
             // 
             this.metroProgressSpinner1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.metroProgressSpinner1.Location = new System.Drawing.Point(474, 124);
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(474, 93);
             this.metroProgressSpinner1.Maximum = 100;
             this.metroProgressSpinner1.Name = "metroProgressSpinner1";
             this.tableLayoutPanel1.SetRowSpan(this.metroProgressSpinner1, 3);
-            this.metroProgressSpinner1.Size = new System.Drawing.Size(102, 86);
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(102, 84);
             this.metroProgressSpinner1.TabIndex = 14;
             this.metroProgressSpinner1.UseSelectable = true;
             this.metroProgressSpinner1.UseStyleColors = true;
@@ -208,7 +207,7 @@
             // ILastLogin
             // 
             this.ILastLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ILastLogin.Location = new System.Drawing.Point(150, 94);
+            this.ILastLogin.Location = new System.Drawing.Point(150, 64);
             this.ILastLogin.Margin = new System.Windows.Forms.Padding(0);
             this.ILastLogin.Name = "ILastLogin";
             this.ILastLogin.Size = new System.Drawing.Size(90, 22);
@@ -221,7 +220,7 @@
             // ILastName
             // 
             this.ILastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ILastName.Location = new System.Drawing.Point(150, 64);
+            this.ILastName.Location = new System.Drawing.Point(150, 34);
             this.ILastName.Margin = new System.Windows.Forms.Padding(0);
             this.ILastName.Name = "ILastName";
             this.ILastName.Size = new System.Drawing.Size(90, 22);
@@ -230,13 +229,12 @@
             this.ILastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ILastName.UseStyleColors = true;
             this.ILastName.Visible = false;
-            this.ILastName.Click += new System.EventHandler(this.metroLabel2_Click);
             // 
             // tlastname
             // 
             this.tlastname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlastname.Lines = new string[0];
-            this.tlastname.Location = new System.Drawing.Point(240, 64);
+            this.tlastname.Location = new System.Drawing.Point(240, 34);
             this.tlastname.Margin = new System.Windows.Forms.Padding(0);
             this.tlastname.MaxLength = 32767;
             this.tlastname.Name = "tlastname";
@@ -254,7 +252,7 @@
             // 
             this.tlastlogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlastlogin.Lines = new string[0];
-            this.tlastlogin.Location = new System.Drawing.Point(240, 94);
+            this.tlastlogin.Location = new System.Drawing.Point(240, 64);
             this.tlastlogin.Margin = new System.Windows.Forms.Padding(0);
             this.tlastlogin.MaxLength = 32767;
             this.tlastlogin.Name = "tlastlogin";
@@ -272,7 +270,7 @@
             // 
             this.tfirstname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tfirstname.Lines = new string[0];
-            this.tfirstname.Location = new System.Drawing.Point(240, 34);
+            this.tfirstname.Location = new System.Drawing.Point(240, 4);
             this.tfirstname.Margin = new System.Windows.Forms.Padding(0);
             this.tfirstname.MaxLength = 32767;
             this.tfirstname.Name = "tfirstname";
@@ -289,7 +287,7 @@
             // IFirstName
             // 
             this.IFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.IFirstName.Location = new System.Drawing.Point(150, 34);
+            this.IFirstName.Location = new System.Drawing.Point(150, 4);
             this.IFirstName.Margin = new System.Windows.Forms.Padding(0);
             this.IFirstName.Name = "IFirstName";
             this.IFirstName.Size = new System.Drawing.Size(90, 22);

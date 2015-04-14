@@ -12,13 +12,6 @@ namespace metrostylegui
             InitializeComponent();
 
             this.Load += MainForm_Load;
-            this.Resize += MainForm_Resize;
-        }
-
-        void MainForm_Resize(object sender, System.EventArgs e)
-        {
-            //if (uc1 != null && metroPanel1.Controls.Contains(uc1))
-            //    ResizeUC(uc1);
         }
 
         private void ResizeUC(MetroUserControl uc)
@@ -32,13 +25,12 @@ namespace metrostylegui
         {
             this.uc1 = new LoginInput();
             this.uc1.UserChanged += uc1_UserChanged;
-            this.metroTabPage1.Controls.Add(this.uc1);
-
+            this.tabLogin.Controls.Add(this.uc1);
         }
 
         void uc1_UserChanged(object sender, UserChangedArgs e)
         {
-            metroTabPage1.Text = (e.User != null) ? e.User.Displayname : "Login";
+            tabLogin.Text = (e.User != null) ? e.User.Displayname : "Login";
         }
     }
 }
