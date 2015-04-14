@@ -31,7 +31,7 @@ namespace metrostylegui
                 get { return id; }
                 private set { id = value; }
             }
-            
+
             private string name, firstname, lastname, displayname;
 
             public string Displayname
@@ -80,11 +80,13 @@ namespace metrostylegui
                             {
                                 UserDataSet.DS_PrmUser_TABDataTable usera = adapter.GetUserById(id.Value);
                                 if (usera[0].Islast_loginNull()) usera[0].last_login = DateTime.MinValue;
+                                usera[0].last_login = (usera[0].Islast_loginNull()) ? DateTime.MinValue : usera[0].last_login;
+                                var val = adapter.UpdateLastLogin(DateTime.Now, id.Value);
                                 return new DmsUser()
                                 {
                                     Id = id.Value,
                                     Name = usera[0].login_name,
-                                    Displayname = usera[0].display_name,
+                                    Displayname = (string.IsNullOrWhiteSpace(usera[0].display_name)) ? usera[0].login_name : usera[0].display_name,
                                     Lastlogin = usera[0].last_login,
                                     Firstname = usera[0].firstname,
                                     Lastname = usera[0].lastname,

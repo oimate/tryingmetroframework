@@ -134,6 +134,7 @@
             this.metroTile1.Size = new System.Drawing.Size(194, 154);
             this.metroTile1.TabIndex = 0;
             this.metroTile1.Text = "PLC Status";
+            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.UseStyleColors = true;
             // 
@@ -147,6 +148,7 @@
             this.metroTile2.Size = new System.Drawing.Size(194, 154);
             this.metroTile2.TabIndex = 1;
             this.metroTile2.Text = "Database Status";
+            this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile2.UseSelectable = true;
             this.metroTile2.UseStyleColors = true;
             // 
