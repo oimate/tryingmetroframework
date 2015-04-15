@@ -77,18 +77,18 @@ namespace metrostylegui
                 DmsUser user = null;
                 try
                 {
-                    using (UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter adapter = new UserDataSetTableAdapters.DS_PrmUser_TABTableAdapter())
+                    using (UserDataSetTableAdapters.DMS_UserSetTableAdapter adapter = new UserDataSetTableAdapters.DMS_UserSetTableAdapter())
                     {
-                        long? id = adapter.Login(login, Obfuscation.Code(login, pwd));
-                        if (id.HasValue)
+                        var usera = adapter.GetUserSetByLoginPwd(Obfuscation.Code(login, pwd), login);
+                        if (usera != null && usera.Count != 0)
                         {
-                            UserDataSet.DS_PrmUser_TABDataTable usera = adapter.GetUserById(id.Value);
+                            long id = usera[0].UserId;
                             if (usera[0].Islast_loginNull()) usera[0].last_login = DateTime.MinValue;
                             usera[0].last_login = (usera[0].Islast_loginNull()) ? DateTime.MinValue : usera[0].last_login;
-                            var val = adapter.UpdateLastLogin(DateTime.Now, id.Value);
+                            var val = adapter.UpdateLastLogin(DateTime.Now, id);
                             return new DmsUser()
                             {
-                                Id = id.Value,
+                                Id = id,
                                 Name = usera[0].login_name,
                                 Displayname = (string.IsNullOrWhiteSpace(usera[0].display_name)) ? usera[0].login_name : usera[0].display_name,
                                 Lastlogin = usera[0].last_login,
