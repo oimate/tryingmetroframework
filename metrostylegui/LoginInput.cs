@@ -172,7 +172,7 @@ namespace metrostylegui
                     tableLayoutPanel1.Controls.Add(tlastlogin, 2, 3);
                     tableLayoutPanel1.Controls.Add(tLogin, 2, 4);
                     tableLayoutPanel1.Controls.Add(tPwd, 2, 5);
-                  
+
                     IGroup.Visible = true;
                     IFirstName.Visible = true;
                     ILastName.Visible = true;
