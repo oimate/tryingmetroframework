@@ -30,6 +30,7 @@
         {
             this.panelbody = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Lgrouptext = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.bLog = new MetroFramework.Controls.MetroButton();
             this.bUpdate = new MetroFramework.Controls.MetroButton();
@@ -46,7 +47,6 @@
             this.tlastlogin = new MetroFramework.Controls.MetroTextBox();
             this.IGroup = new MetroFramework.Controls.MetroLabel();
             this.tGroup = new MetroFramework.Controls.MetroTextBox();
-            this.Lgrouptext = new MetroFramework.Controls.MetroLabel();
             this.Lfirstnametext = new MetroFramework.Controls.MetroLabel();
             this.Llastnametext = new MetroFramework.Controls.MetroLabel();
             this.Lastlogintext = new MetroFramework.Controls.MetroLabel();
@@ -113,6 +113,19 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 242);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // Lgrouptext
+            // 
+            this.Lgrouptext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lgrouptext.Location = new System.Drawing.Point(0, 4);
+            this.Lgrouptext.Margin = new System.Windows.Forms.Padding(0);
+            this.Lgrouptext.Name = "Lgrouptext";
+            this.Lgrouptext.Size = new System.Drawing.Size(150, 22);
+            this.Lgrouptext.TabIndex = 14;
+            this.Lgrouptext.Text = "Group_test";
+            this.Lgrouptext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Lgrouptext.UseStyleColors = true;
+            this.Lgrouptext.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -362,19 +375,6 @@
             this.tGroup.Visible = false;
             this.tGroup.WordWrap = false;
             // 
-            // Lgrouptext
-            // 
-            this.Lgrouptext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Lgrouptext.Location = new System.Drawing.Point(0, 4);
-            this.Lgrouptext.Margin = new System.Windows.Forms.Padding(0);
-            this.Lgrouptext.Name = "Lgrouptext";
-            this.Lgrouptext.Size = new System.Drawing.Size(150, 22);
-            this.Lgrouptext.TabIndex = 14;
-            this.Lgrouptext.Text = "Group_test";
-            this.Lgrouptext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Lgrouptext.UseStyleColors = true;
-            this.Lgrouptext.Visible = false;
-            // 
             // Lfirstnametext
             // 
             this.Lfirstnametext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -384,7 +384,7 @@
             this.Lfirstnametext.Size = new System.Drawing.Size(150, 22);
             this.Lfirstnametext.TabIndex = 15;
             this.Lfirstnametext.Text = "First Name_text";
-            this.Lfirstnametext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Lfirstnametext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lfirstnametext.UseStyleColors = true;
             this.Lfirstnametext.Visible = false;
             // 
@@ -397,7 +397,7 @@
             this.Llastnametext.Size = new System.Drawing.Size(150, 22);
             this.Llastnametext.TabIndex = 16;
             this.Llastnametext.Text = "Last Name_text";
-            this.Llastnametext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Llastnametext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Llastnametext.UseStyleColors = true;
             this.Llastnametext.Visible = false;
             // 
@@ -410,7 +410,7 @@
             this.Lastlogintext.Size = new System.Drawing.Size(150, 22);
             this.Lastlogintext.TabIndex = 17;
             this.Lastlogintext.Text = "Last Login_text";
-            this.Lastlogintext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Lastlogintext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lastlogintext.UseStyleColors = true;
             this.Lastlogintext.Visible = false;
             // 
@@ -423,8 +423,9 @@
             this.Llogintext.Size = new System.Drawing.Size(150, 22);
             this.Llogintext.TabIndex = 18;
             this.Llogintext.Text = "Login_text";
-            this.Llogintext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Llogintext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Llogintext.UseStyleColors = true;
+            this.Llogintext.Visible = false;
             // 
             // Lpasswordtext
             // 
@@ -435,8 +436,9 @@
             this.Lpasswordtext.Size = new System.Drawing.Size(150, 22);
             this.Lpasswordtext.TabIndex = 19;
             this.Lpasswordtext.Text = "Password_text";
-            this.Lpasswordtext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Lpasswordtext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lpasswordtext.UseStyleColors = true;
+            this.Lpasswordtext.Visible = false;
             // 
             // LoginInput
             // 

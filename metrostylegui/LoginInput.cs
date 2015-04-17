@@ -52,19 +52,17 @@ namespace metrostylegui
             }
         }
 
-        public string Login { get { return tLogin.Text; } }
-        public string Pwd { get { return tPwd.Text; } }
-
         private async void bLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Login) || string.IsNullOrWhiteSpace(Pwd)) return;
+            if (string.IsNullOrWhiteSpace(tLogin.Text) || string.IsNullOrWhiteSpace(tPwd.Text)) return;
 
             LoginInProggres(true);
 
-            user = await Task<DmsDatabase.DmsUser>.Run(() => DmsDatabase.DmsUser.GetUser(Login, Pwd));
+            user = await Task<DmsDatabase.DmsUser>.Run(() => DmsDatabase.DmsUser.GetUser(tLogin.Text, tPwd.Text));
             LogState ls = (user != null) ? LogState.LoginOK : LogState.LoginNOK;
             OnUserChanged(user, ls);
         }
+
         private void LoginInProggres(bool p)
         {
             metroProgressSpinner1.Visible = p;
@@ -72,6 +70,7 @@ namespace metrostylegui
             tLogin.Enabled = !p;
             tPwd.Enabled = !p;
         }
+
         public event EventHandler<UserChangedArgs> UserChanged;
         private void OnUserChanged(DmsDatabase.DmsUser user, LogState logstate)
         {
@@ -82,15 +81,20 @@ namespace metrostylegui
                 {
                     case LogState.LoginOK:
                         UserChanged(this, new UserChangedArgs() { User = user });
+                        tableLayoutPanel1.Visible = false;
                         MetroFramework.MetroMessageBox.Show(this.ParentForm, "login Sucessfull", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tableLayoutPanel1.Visible = true;
                         LoginSuccessfull(true);
                         break;
                     case LogState.Logout:
                         UserChanged(this, new UserChangedArgs() { User = user });
                         LoginSuccessfull(false);
+                        tPwd.Text = "";
                         break;
                     case LogState.LoginNOK:
+                        tableLayoutPanel1.Visible = false;
                         MetroFramework.MetroMessageBox.Show(this.ParentForm, "login failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tableLayoutPanel1.Visible = true;
                         break;
                     default:
                         break;
@@ -98,57 +102,164 @@ namespace metrostylegui
             }
         }
 
-        private void LoginSuccessfull(bool p)
+        private void LoginSuccessfull(bool success)
         {
-            if (p)
+            if (success)
             {
-                bLog.Text = "Logout";
+                bLog.Text = Properties.Resources.Logout;
                 bLog.Click -= bLogin_Click;
                 bLog.Click += bLogout_Click;
-                tLogin.Enabled = !p;
-                //   tPwd.Visible = !p;            
+                UserBoxDisplay(DisplayMode.AllLabels);
                 UserInfo(user);
-                UserBoxDisplay();
             }
             else
             {
-                bLog.Text = "Login!";
+                bLog.Text = Properties.Resources.Login;
                 bLog.Click -= bLogout_Click;
                 bLog.Click += bLogin_Click;
-                tLogin.Enabled = !p;
-                tPwd.Visible = !p;
-                //         lLogin.Visible = !p;
-                lPwd.Visible = !p;
-                IFirstName.Visible = p;
-                ILastName.Visible = p;
-                ILastLogin.Visible = p;
-                tfirstname.Visible = p;
-                tlastname.Visible = p;
-                tlastlogin.Visible = p;
             }
-            bUpdate.Visible = p;
-            bUpdate.Text = "Edit";
+            bUpdate.Visible = success;
+            bUpdate.Text = Properties.Resources.Edit;
             bUpdate.Click -= bUpdate_Click;
             bUpdate.Click += bEdit_Click;
         }
 
-        private void UserBoxDisplay()
+        private void UserBoxDisplay(DisplayMode disp)
         {
-            tableLayoutPanel1.Controls.Remove(tLogin);
-            tableLayoutPanel1.Controls.Remove(IFirstName);
-            tableLayoutPanel1.Controls.Add(IFirstName, 2, 4);
+            switch (disp)
+            {
+                case DisplayMode.AllLabels:
+                    tableLayoutPanel1.Controls.Add(Lgrouptext, 2, 0);
+                    tableLayoutPanel1.Controls.Add(Lfirstnametext, 2, 1);
+                    tableLayoutPanel1.Controls.Add(Llastnametext, 2, 2);
+                    tableLayoutPanel1.Controls.Add(Lastlogintext, 2, 3);
+                    tableLayoutPanel1.Controls.Add(Llogintext, 2, 4);
+                    tableLayoutPanel1.Controls.Add(Lpasswordtext, 2, 5);
+
+                    IGroup.Visible = true;
+                    IFirstName.Visible = true;
+                    ILastName.Visible = true;
+                    ILastLogin.Visible = true;
+                    lLogin.Visible = true;
+                    lPwd.Visible = true;
+
+                    Lgrouptext.Visible = true;
+                    Lfirstnametext.Visible = true;
+                    Llastnametext.Visible = true;
+                    Lastlogintext.Visible = true;
+                    Llogintext.Visible = true;
+                    Lpasswordtext.Visible = true;
+
+                    tGroup.Visible = false;
+                    tfirstname.Visible = false;
+                    tlastname.Visible = false;
+                    tlastlogin.Visible = false;
+                    tLogin.Visible = false;
+                    tPwd.Visible = false;
+                    break;
+
+                case DisplayMode.AllTables:
+                    tableLayoutPanel1.Controls.Remove(Lgrouptext);
+                    tableLayoutPanel1.Controls.Remove(Lfirstnametext);
+                    tableLayoutPanel1.Controls.Remove(Llastnametext);
+                    tableLayoutPanel1.Controls.Remove(Lastlogintext);
+                    tableLayoutPanel1.Controls.Remove(Llogintext);
+                    tableLayoutPanel1.Controls.Remove(Lpasswordtext);
+
+                    tableLayoutPanel1.Controls.Add(tGroup, 2, 0);
+                    tableLayoutPanel1.Controls.Add(tfirstname, 2, 1);
+                    tableLayoutPanel1.Controls.Add(tlastname, 2, 2);
+                    tableLayoutPanel1.Controls.Add(tlastlogin, 2, 3);
+                    tableLayoutPanel1.Controls.Add(tLogin, 2, 4);
+                    tableLayoutPanel1.Controls.Add(tPwd, 2, 5);
+                  
+                    IGroup.Visible = true;
+                    IFirstName.Visible = true;
+                    ILastName.Visible = true;
+                    ILastLogin.Visible = true;
+                    lLogin.Visible = true;
+                    lPwd.Visible = true;
+
+                    Lgrouptext.Visible = false;
+                    Lfirstnametext.Visible = false;
+                    Llastnametext.Visible = false;
+                    Lastlogintext.Visible = false;
+                    Llogintext.Visible = false;
+                    Lpasswordtext.Visible = false;
+
+                    tGroup.Visible = true;
+                    tfirstname.Visible = true;
+                    tlastname.Visible = true;
+                    tlastlogin.Visible = true;
+                    tLogin.Visible = true;
+                    tPwd.Visible = true;
+
+                    tGroup.Enabled = false;
+                    tlastlogin.Enabled = false;
+                    break;
+
+                case DisplayMode.LogingAndPwdTables:
+                    tableLayoutPanel1.Controls.Remove(Lgrouptext);
+                    tableLayoutPanel1.Controls.Remove(Lfirstnametext);
+                    tableLayoutPanel1.Controls.Remove(Llastnametext);
+                    tableLayoutPanel1.Controls.Remove(Lastlogintext);
+                    tableLayoutPanel1.Controls.Remove(Llogintext);
+                    tableLayoutPanel1.Controls.Remove(Lpasswordtext);
+
+                    tableLayoutPanel1.Controls.Add(tGroup, 2, 0);
+                    tableLayoutPanel1.Controls.Add(tfirstname, 2, 1);
+                    tableLayoutPanel1.Controls.Add(tlastname, 2, 2);
+                    tableLayoutPanel1.Controls.Add(tlastlogin, 2, 3);
+                    tableLayoutPanel1.Controls.Add(tLogin, 2, 4);
+                    tableLayoutPanel1.Controls.Add(tPwd, 2, 5);
+
+                    IGroup.Visible = false;
+                    IFirstName.Visible = false;
+                    ILastName.Visible = false;
+                    ILastLogin.Visible = false;
+                    lLogin.Visible = true;
+                    lPwd.Visible = true;
+
+                    Lgrouptext.Visible = false;
+                    Lfirstnametext.Visible = false;
+                    Llastnametext.Visible = false;
+                    Lastlogintext.Visible = false;
+                    Llogintext.Visible = false;
+                    Lpasswordtext.Visible = false;
+
+                    tGroup.Visible = false;
+                    tfirstname.Visible = false;
+                    tlastname.Visible = false;
+                    tlastlogin.Visible = false;
+                    tLogin.Visible = true;
+                    tPwd.Visible = true;
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void UserInfo(DmsDatabase.DmsUser user)
         {
+            tGroup.Text = user.Group;
             tfirstname.Text = user.Firstname;
             tlastname.Text = user.Lastname;
             tlastlogin.Text = Convert.ToString(user.Lastlogin);
+            tLogin.Text = user.Name;
+            Lpasswordtext.Text = "****";
+            Lgrouptext.Text = user.Group;
+            Lfirstnametext.Text = user.Firstname;
+            Llastnametext.Text = user.Lastname;
+            Lastlogintext.Text = Convert.ToString(user.Lastlogin);
+            Llogintext.Text = user.Name;
         }
 
         private void bLogout_Click(object sender, EventArgs e)
         {
+            UserBoxDisplay(DisplayMode.LogingAndPwdTables);
             OnUserChanged(null, LogState.Logout);
+
         }
 
         private void tLogin_KeyPress(object sender, KeyPressEventArgs e)
@@ -166,28 +277,39 @@ namespace metrostylegui
             Logout,
         }
 
+        enum DisplayMode
+        {
+            AllLabels,
+            AllTables,
+            LogingAndPwdTables,
+        }
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-            bUpdate.Text = "Update";
-            lPwd.Visible = true;
-            IFirstName.Visible = true;
-            ILastName.Visible = true;
-            ILastLogin.Visible = true;
-            tfirstname.Visible = true;
-            tlastname.Visible = true;
-            tlastlogin.Visible = true;
+            bUpdate.Text = Properties.Resources.Update;
             bUpdate.Click -= bEdit_Click;
             bUpdate.Click += bUpdate_Click;
+
+            UserBoxDisplay(DisplayMode.AllTables);
+            UserInfo(user);
         }
 
         private async void bUpdate_Click(object sender, EventArgs e)
         {
+            user.Group = tGroup.Text;
             user.Firstname = tfirstname.Text;
             user.Lastname = tlastname.Text;
+            user.Lastlogin = Convert.ToDateTime(tlastlogin.Text);
+            user.Name = tLogin.Text;
+            user.Pwd = Obfuscation.Code(tLogin.Text, tPwd.Text);
             metroProgressSpinner1.Visible = true;
             await Task.Run(() => DmsDatabase.DmsUser.SaveUser(user));
             metroProgressSpinner1.Visible = false;
+            bUpdate.Text = Properties.Resources.Edit;
+            bUpdate.Click -= bUpdate_Click;
+            bUpdate.Click += bEdit_Click;
+            UserBoxDisplay(DisplayMode.AllLabels);
+            UserInfo(user);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -195,10 +317,10 @@ namespace metrostylegui
 
         }
 
-       
-    
 
-    
+
+
+
     }
 }
 

@@ -70,7 +70,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit.
+        ///   Looks up a localized string similar to Edit:.
         /// </summary>
         internal static string Edit {
             get {
@@ -79,7 +79,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First Name.
+        ///   Looks up a localized string similar to First Name:.
         /// </summary>
         internal static string FirstName {
             get {
@@ -88,7 +88,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group.
+        ///   Looks up a localized string similar to Group:.
         /// </summary>
         internal static string Group {
             get {
@@ -97,7 +97,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Login.
+        ///   Looks up a localized string similar to Last Login:.
         /// </summary>
         internal static string LastLogin {
             get {
@@ -106,7 +106,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Name.
+        ///   Looks up a localized string similar to Last Name:.
         /// </summary>
         internal static string LastName {
             get {
@@ -115,7 +115,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Login:.
         /// </summary>
         internal static string Login {
             get {
@@ -133,7 +133,7 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Password:.
         /// </summary>
         internal static string Password {
             get {

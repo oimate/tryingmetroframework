@@ -32,12 +32,30 @@ namespace metrostylegui
                 private set { id = value; }
             }
 
-            private string name, firstname, lastname, displayname, pwd;
+            private string name, firstname, lastname, displayname, pwd, group, esmgr, esmur;
 
             public string Pwd
             {
                 get { return pwd; }
                 set { pwd = value; }
+            }
+
+            public string Group
+            {
+                get { return group; }
+                set { group = value; }
+            }
+
+            public string Esmgr
+            {
+                get { return esmgr; }
+                set { esmgr = value; }
+            }
+
+            public string Esmur
+            {
+                get { return esmur; }
+                set { esmur = value; }
             }
 
             public string Displayname
@@ -95,6 +113,9 @@ namespace metrostylegui
                                 Firstname = usera[0].firstname,
                                 Lastname = usera[0].lastname,
                                 Pwd = usera[0].pwd,
+                                Group = usera[0].name,
+                                Esmgr = usera[0].esm_gr,
+                                Esmur = usera[0].esm_ur,
                             };
                         }
 
