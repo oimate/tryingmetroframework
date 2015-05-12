@@ -33,5 +33,10 @@ namespace metrostylegui
         {
             tabLogin.Text = (e.User != null) ? e.User.Displayname : "Login";
         }
+
+        private void metroTile1_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

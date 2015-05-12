@@ -33,8 +33,8 @@
             this.tabLogin = new MetroFramework.Controls.MetroTabPage();
             this.tabStatus = new MetroFramework.Controls.MetroTabPage();
             this.tlpErp = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.tabsMain.SuspendLayout();
             this.tabStatus.SuspendLayout();
@@ -124,20 +124,6 @@
             this.tlpErp.Size = new System.Drawing.Size(782, 497);
             this.tlpErp.TabIndex = 0;
             // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile1.Location = new System.Drawing.Point(194, 171);
-            this.metroTile1.Name = "metroTile1";
-            this.tlpErp.SetRowSpan(this.metroTile1, 4);
-            this.metroTile1.Size = new System.Drawing.Size(194, 154);
-            this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "PLC Status";
-            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseStyleColors = true;
-            // 
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
@@ -151,6 +137,21 @@
             this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile2.UseSelectable = true;
             this.metroTile2.UseStyleColors = true;
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTile1.Location = new System.Drawing.Point(194, 171);
+            this.metroTile1.Name = "metroTile1";
+            this.tlpErp.SetRowSpan(this.metroTile1, 4);
+            this.metroTile1.Size = new System.Drawing.Size(194, 154);
+            this.metroTile1.TabIndex = 0;
+            this.metroTile1.Text = "PLC Status";
+            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseStyleColors = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // MainForm
             // 
