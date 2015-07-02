@@ -35,6 +35,7 @@
             this.tlpErp = new System.Windows.Forms.TableLayoutPanel();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.btconnectTCP = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.tabsMain.SuspendLayout();
             this.tabStatus.SuspendLayout();
@@ -110,6 +111,7 @@
             this.tlpErp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpErp.Controls.Add(this.metroTile2, 2, 1);
             this.tlpErp.Controls.Add(this.metroTile1, 1, 1);
+            this.tlpErp.Controls.Add(this.btconnectTCP, 0, 0);
             this.tlpErp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpErp.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tlpErp.Location = new System.Drawing.Point(0, 0);
@@ -153,6 +155,18 @@
             this.metroTile1.UseStyleColors = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
+            // btconnectTCP
+            // 
+            this.btconnectTCP.Location = new System.Drawing.Point(3, 3);
+            this.btconnectTCP.Name = "btconnectTCP";
+            this.btconnectTCP.Size = new System.Drawing.Size(140, 88);
+            this.btconnectTCP.Style = MetroFramework.MetroColorStyle.Brown;
+            this.btconnectTCP.TabIndex = 2;
+            this.btconnectTCP.Text = "Connect";
+            this.btconnectTCP.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btconnectTCP.UseSelectable = true;
+            this.btconnectTCP.Click += new System.EventHandler(this.btconnectTCP_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +195,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpErp;
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroButton btconnectTCP;
 
 
 

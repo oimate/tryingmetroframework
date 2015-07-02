@@ -2045,7 +2045,7 @@ SELECT id, login_name, firstname, lastname, display_name, pwd, email, descriptio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=dbmachine\\durr_systems;Initial Catalog=EMOS_WEB;User ID=user;Password" +
+            this._connection.ConnectionString = "Data Source=CDMS\\durr_systems;Initial Catalog=EMOS_WEB;User ID=user;Password" +
                 "=user";
         }
         
@@ -2910,7 +2910,7 @@ WHERE        (DS_PrmUser_TAB.id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=dbmachine\\durr_systems;Initial Catalog=EMOS_WEB;User ID=user;Password" +
+            this._connection.ConnectionString = "Data Source=CDMS\\durr_systems;Initial Catalog=EMOS_WEB;User ID=user;Password" +
                 "=user";
         }
         

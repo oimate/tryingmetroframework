@@ -1,5 +1,6 @@
 ﻿using MetroFramework.Controls;
 using MetroFramework.Forms;
+
 //using System.Drawing;
 //using System.Windows.Forms;
 
@@ -38,5 +39,12 @@ namespace metrostylegui
         {
 
         }
+
+        private void btconnectTCP_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+
     }
 }

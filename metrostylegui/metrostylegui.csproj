@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TCP_MasterSlave.cs" />
     <Compile Include="DmsDatabase.cs" />
     <Compile Include="LoginInput.cs">
       <SubType>UserControl</SubType>
