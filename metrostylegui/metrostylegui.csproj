@@ -53,34 +53,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TCP_MasterSlave.cs" />
-    <Compile Include="DmsDatabase.cs" />
-    <Compile Include="LoginInput.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="LoginInput.Designer.cs">
-      <DependentUpon>LoginInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="DmsCore\DmsExtensions.cs" />
+    <Compile Include="DmsForm_ProductionData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="DmsForm_ProductionData.Designer.cs">
+      <DependentUpon>DmsForm_ProductionData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Obfuscation.cs" />
+    <Compile Include="DmsForm_FactoryState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DmsForm_FactoryState.Designer.cs">
+      <DependentUpon>DmsForm_FactoryState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DmsForm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DmsForm_Login.Designer.cs">
+      <DependentUpon>DmsForm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DmsLog\SimpleFileLog.cs" />
+    <Compile Include="DmsCore\DmsSession.cs" />
+    <Compile Include="DmsCore\DmsDatabase.cs" />
+    <Compile Include="DmsForm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DmsForm_Main.Designer.cs">
+      <DependentUpon>DmsForm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DmsCore\DmsObfuscation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserChangedArgs.cs" />
-    <Compile Include="UserDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDataSet.xsd</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="LoginInput.resx">
-      <DependentUpon>LoginInput.cs</DependentUpon>
+    <EmbeddedResource Include="DmsForm_ProductionData.resx">
+      <DependentUpon>DmsForm_ProductionData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="DmsForm_FactoryState.resx">
+      <DependentUpon>DmsForm_FactoryState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DmsForm_Login.resx">
+      <DependentUpon>DmsForm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DmsForm_Main.resx">
+      <DependentUpon>DmsForm_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,17 +106,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="UserDataSet.xsc">
-      <DependentUpon>UserDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="UserDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>UserDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="UserDataSet.xss">
-      <DependentUpon>UserDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

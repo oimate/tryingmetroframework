@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace metrostylegui
 {
-    static public class Obfuscation
+    static public class DmsObfuscation
     {
         public static string Code(string u, string p)
         {

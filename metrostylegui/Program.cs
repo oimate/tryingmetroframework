@@ -16,14 +16,7 @@ namespace metrostylegui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-        }
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern bool HideCaret(IntPtr hWnd);
-        public static void HideCaret(this MetroFramework.Controls.MetroTextBox textBox)
-        {
-            HideCaret(textBox.Handle);
+            Application.Run(new DmsForm_Main());
         }
     }
 }
