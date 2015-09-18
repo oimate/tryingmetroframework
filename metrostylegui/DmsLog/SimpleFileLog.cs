@@ -31,7 +31,7 @@ namespace metrostylegui.DmsLog
         private static void CleanLogs()
         {
             var current = new FileInfo(filename);
-            if (current.Length > 1024)
+            if (current.Exists && current.Length > 1024)
             {
                 var oldies = new DirectoryInfo(".").EnumerateFiles("log-???????????????????.txt").OrderBy(d => d.LastWriteTime).ToList();
                 while (oldies.Count > 9)
@@ -42,7 +42,6 @@ namespace metrostylegui.DmsLog
                 }
                 File.Move(current.Name, string.Format("log-{0:yyyyMMddHHmmfffffff}.txt", DateTime.Now));
             }
-
             //var pdt = DateTime.ParseExact(dt, "yyyyMMddHHmmfffffff", System.Globalization.CultureInfo.InvariantCulture);
         }
 

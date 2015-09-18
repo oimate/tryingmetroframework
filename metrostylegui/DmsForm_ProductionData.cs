@@ -23,7 +23,6 @@ namespace metrostylegui
             gridProductionData.AutoResizeColumns();
             gridProductionData.Columns["Id"].Visible = false;
             gridProductionData.Columns["rowNum"].Visible = false;
-            gridProductionData.Columns["User"].Visible = false;
             gridProductionData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 

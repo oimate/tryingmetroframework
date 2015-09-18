@@ -8,10 +8,39 @@ namespace metrostylegui
 {
     public partial class DmsForm_Main : MetroForm
     {
+        TCP.TCP_MasterSlave client;
+
         public DmsForm_Main()
         {
             InitializeComponent();
-            DmsLog.Notes.Log(DmsObfuscation.Code("dms", DmsSession.ConnectionString));
+
+            client = new TCP.TCP_MasterSlave(TCP.ServerType.Client, "10.10.1.240", 4242, "dmsCli");
+            client.ReceiveData = GetConnectionString;
+            bgCon.RunWorkerAsync();
+        }
+
+        private void GetConnectionString(System.Net.Sockets.Socket socket, byte[] data)
+        {
+            try
+            {
+                int size;
+                using (var ms = new System.IO.MemoryStream(data))
+                {
+                    using (var br = new System.IO.BinaryReader(ms))
+                    {
+                        size = br.ReadInt32();
+                        var codedstring = System.Text.Encoding.UTF8.GetString(br.ReadBytes(size));
+                        var decodedstring = DmsObfuscation.Decode("dms", codedstring);
+                        DmsLog.Notes.Log(decodedstring);
+                        DmsSession.ConnectionString = decodedstring;
+                    }
+                }
+            }
+            catch (System.Exception)
+            {
+                System.Diagnostics.Debugger.Break();
+                throw;
+            }
         }
 
         private void tileLoginLogout_Click(object sender, System.EventArgs e)
@@ -112,6 +141,20 @@ namespace metrostylegui
         private void tileDatabaseStatus_Click(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void bgCon_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            while (client.Status != TCP.ConnStat.Connected)
+            {
+                client.Open();
+                if (client.Status != TCP.ConnStat.Connected)
+                {
+                    System.Threading.Thread.Sleep(2000);
+                }
+            }
+            DmsLog.Notes.Log("sending request");
+            client.SendToServer(new byte[] { 49 });
         }
 
     }

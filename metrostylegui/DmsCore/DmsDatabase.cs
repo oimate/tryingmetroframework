@@ -1521,7 +1521,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
                     #region Command 1 - Select Range
                     this._commandCollection[1] = new System.Data.SqlClient.SqlCommand();
                     this._commandCollection[1].Connection = this.Connection;
-                    this._commandCollection[1].CommandText = @"WITH Results_CTE AS ( SELECT [ForeignSkid] as 'Skid Nr', [Track], [DerivativeCode] as 'Derivative Code', [Colour], [BSN], [Roof], [Door], [Spare], [LeftPlant] as 'Left Plant', [Timestamp], [fk_User] as 'User', [Id], ROW_NUMBER() OVER (ORDER BY Id desc) AS RowNum FROM DMS_ERP) SELECT * FROM Results_CTE WHERE RowNum >= @Offset AND RowNum < @Offset + @Limit";
+                    this._commandCollection[1].CommandText = @"WITH Results_CTE AS ( SELECT [ForeignSkid] as 'Skid Nr', [Track], [DerivativeCode] as 'Derivative Code', [Colour], [BSN], [Roof], [Door], [Spare], [LeftPlant] as 'Left Plant', [Timestamp], UpdatedOnMfp as 'MFP', [Id], ROW_NUMBER() OVER (ORDER BY Id desc) AS RowNum FROM DMS_ERP) SELECT * FROM Results_CTE WHERE RowNum >= @Offset AND RowNum < @Offset + @Limit";
                     this._commandCollection[1].CommandType = System.Data.CommandType.Text;
                     this._commandCollection[1].Parameters.Add(new System.Data.SqlClient.SqlParameter("@Offset", System.Data.SqlDbType.Int));
                     this._commandCollection[1].Parameters.Add(new System.Data.SqlClient.SqlParameter("@Limit", System.Data.SqlDbType.Int));

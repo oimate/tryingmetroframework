@@ -34,6 +34,7 @@
             this.tileLoginLogout = new MetroFramework.Controls.MetroTile();
             this.tilePlcStatus = new MetroFramework.Controls.MetroTile();
             this.tileDatabaseStatus = new MetroFramework.Controls.MetroTile();
+            this.bgCon = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutStatus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,6 +149,10 @@
             this.tileDatabaseStatus.UseSelectable = true;
             this.tileDatabaseStatus.Click += new System.EventHandler(this.tileDatabaseStatus_Click);
             // 
+            // bgCon
+            // 
+            this.bgCon.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgCon_DoWork);
+            // 
             // DmsForm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +178,7 @@
         private MetroFramework.Controls.MetroTile tileDatabaseStatus;
         private MetroFramework.Controls.MetroTile tileFactory;
         private MetroFramework.Controls.MetroTile tileERP;
+        private System.ComponentModel.BackgroundWorker bgCon;
 
 
 
