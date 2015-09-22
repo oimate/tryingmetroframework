@@ -106,12 +106,12 @@ namespace metrostylegui
             //this.WindowState = System.Windows.Forms.FormWindowState.Normal;
         }
 
-        DmsForm_FactoryState factoryForm;
+        DmsForm_Filer factoryForm;
         private void tileFactory_Click(object sender, System.EventArgs e)
         {
             if (factoryForm == null)
             {
-                factoryForm = new DmsForm_FactoryState();
+                factoryForm = new DmsForm_Filer();
                 factoryForm.FormClosing += factoryForm_FormClosing;
             }
             factoryForm.Show();

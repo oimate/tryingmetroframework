@@ -97,6 +97,26 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jaguar {
+            get {
+                object obj = ResourceManager.GetObject("jaguar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jaguarland {
+            get {
+                object obj = ResourceManager.GetObject("jaguarland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Login:.
         /// </summary>
         internal static string LastLogin {

@@ -33,16 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panFilters = new MetroFramework.Controls.MetroPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.bTxt = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.bFilters = new MetroFramework.Controls.MetroButton();
             this.bSearch = new MetroFramework.Controls.MetroButton();
             this.panTable = new MetroFramework.Controls.MetroPanel();
             this.gridProductionData = new MetroFramework.Controls.MetroGrid();
-            this.bFilters = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.bTxt = new MetroFramework.Controls.MetroButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panFilters.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductionData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panFilters
@@ -82,9 +84,47 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 33);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // bTxt
+            // 
+            this.bTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bTxt.Location = new System.Drawing.Point(571, 3);
+            this.bTxt.Name = "bTxt";
+            this.bTxt.Size = new System.Drawing.Size(58, 27);
+            this.bTxt.Style = MetroFramework.MetroColorStyle.Orange;
+            this.bTxt.TabIndex = 1;
+            this.bTxt.Text = "Save";
+            this.bTxt.UseSelectable = true;
+            this.bTxt.UseStyleColors = true;
+            this.bTxt.Click += new System.EventHandler(this.bTxt_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroButton1.Location = new System.Drawing.Point(507, 3);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(58, 27);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroButton1.TabIndex = 0;
+            this.metroButton1.Text = "csv";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            // 
+            // bFilters
+            // 
+            this.bFilters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bFilters.Location = new System.Drawing.Point(635, 3);
+            this.bFilters.Name = "bFilters";
+            this.bFilters.Size = new System.Drawing.Size(58, 27);
+            this.bFilters.Style = MetroFramework.MetroColorStyle.Blue;
+            this.bFilters.TabIndex = 2;
+            this.bFilters.Text = "Filters";
+            this.bFilters.UseSelectable = true;
+            this.bFilters.UseStyleColors = true;
+            this.bFilters.Click += new System.EventHandler(this.bFilters_Click);
             // 
             // bSearch
             // 
@@ -169,47 +209,22 @@
             this.gridProductionData.TabIndex = 0;
             this.gridProductionData.UseStyleColors = true;
             // 
-            // bFilters
+            // pictureBox1
             // 
-            this.bFilters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bFilters.Location = new System.Drawing.Point(635, 3);
-            this.bFilters.Name = "bFilters";
-            this.bFilters.Size = new System.Drawing.Size(58, 27);
-            this.bFilters.Style = MetroFramework.MetroColorStyle.Blue;
-            this.bFilters.TabIndex = 2;
-            this.bFilters.Text = "Filters";
-            this.bFilters.UseSelectable = true;
-            this.bFilters.UseStyleColors = true;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroButton1.Location = new System.Drawing.Point(507, 3);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(58, 27);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroButton1.TabIndex = 0;
-            this.metroButton1.Text = "csv";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.UseStyleColors = true;
-            // 
-            // bTxt
-            // 
-            this.bTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bTxt.Location = new System.Drawing.Point(571, 3);
-            this.bTxt.Name = "bTxt";
-            this.bTxt.Size = new System.Drawing.Size(58, 27);
-            this.bTxt.Style = MetroFramework.MetroColorStyle.Orange;
-            this.bTxt.TabIndex = 1;
-            this.bTxt.Text = "txt";
-            this.bTxt.UseSelectable = true;
-            this.bTxt.UseStyleColors = true;
+            this.pictureBox1.Image = global::metrostylegui.Properties.Resources.jaguarland;
+            this.pictureBox1.Location = new System.Drawing.Point(723, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 44);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // DmsForm_ProductionData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panTable);
             this.Controls.Add(this.panFilters);
             this.Name = "DmsForm_ProductionData";
@@ -219,6 +234,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductionData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,5 +249,6 @@
         private MetroFramework.Controls.MetroButton bTxt;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton bFilters;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

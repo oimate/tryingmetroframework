@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>iTextSharp\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\MetroFramework.dll</HintPath>
     </Reference>
@@ -120,10 +124,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\dms\TCPIPLib\TCPIPLib.csproj">
+    <ProjectReference Include="..\..\1. DMS\dms\dms\TCPIPLib\TCPIPLib.csproj">
       <Project>{7a7de344-0c3d-400d-a1a4-9a299491b486}</Project>
       <Name>TCPIPLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jaguarland.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jaguar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

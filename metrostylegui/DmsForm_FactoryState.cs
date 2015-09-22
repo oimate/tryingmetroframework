@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace metrostylegui
 {
-    public partial class DmsForm_FactoryState : MetroFramework.Forms.MetroForm
+    public partial class DmsForm_Filer : MetroFramework.Forms.MetroForm
     {
-        public DmsForm_FactoryState()
+        public DmsForm_Filer()
         {
             InitializeComponent();
             DmsSession.LogingOut += HandleLoggingOut;

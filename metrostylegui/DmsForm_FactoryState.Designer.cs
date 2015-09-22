@@ -1,6 +1,6 @@
 ﻿namespace metrostylegui
 {
-    partial class DmsForm_FactoryState
+    partial class DmsForm_Filer
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(600, 800);
             this.Name = "DmsForm_FactoryState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
             this.Style = MetroFramework.MetroColorStyle.Purple;

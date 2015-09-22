@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metrostylegui", "metrostylegui\metrostylegui.csproj", "{2F98E048-F46E-4B1E-BFDA-CB784C1D7FC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPIPLib", "..\dms\TCPIPLib\TCPIPLib.csproj", "{7A7DE344-0C3D-400D-A1A4-9A299491B486}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPIPLib", "..\1. DMS\dms\dms\TCPIPLib\TCPIPLib.csproj", "{7A7DE344-0C3D-400D-A1A4-9A299491B486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
