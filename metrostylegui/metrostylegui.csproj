@@ -64,11 +64,11 @@
     <Compile Include="DmsForm_ProductionData.Designer.cs">
       <DependentUpon>DmsForm_ProductionData.cs</DependentUpon>
     </Compile>
-    <Compile Include="DmsForm_FactoryState.cs">
+    <Compile Include="DmsForm_Filter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DmsForm_FactoryState.Designer.cs">
-      <DependentUpon>DmsForm_FactoryState.cs</DependentUpon>
+    <Compile Include="DmsForm_Filter.Designer.cs">
+      <DependentUpon>DmsForm_Filter.cs</DependentUpon>
     </Compile>
     <Compile Include="DmsForm_Login.cs">
       <SubType>Form</SubType>
@@ -91,8 +91,8 @@
     <EmbeddedResource Include="DmsForm_ProductionData.resx">
       <DependentUpon>DmsForm_ProductionData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DmsForm_FactoryState.resx">
-      <DependentUpon>DmsForm_FactoryState.cs</DependentUpon>
+    <EmbeddedResource Include="DmsForm_Filter.resx">
+      <DependentUpon>DmsForm_Filter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DmsForm_Login.resx">
       <DependentUpon>DmsForm_Login.cs</DependentUpon>

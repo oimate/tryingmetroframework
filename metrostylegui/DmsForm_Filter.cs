@@ -27,5 +27,17 @@ namespace metrostylegui
         {
             DmsSession.LogingOut -= HandleLoggingOut;
         }
+
+        private void btFiltersave_Click(object sender, EventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, "Actual Filter was saved", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);                   
+
+        }
+
+        private void btFilterReset_Click(object sender, EventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, "All setings was removed", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);                   
+
+        }
     }
 }

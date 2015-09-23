@@ -46,18 +46,14 @@ namespace metrostylegui
 
         private void bSearch_Click(object sender, EventArgs e)
         {
+
             gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 200);
             ReStyleDataGrid();
+            bTxt.Enabled = true;
         }
 
         private void bTxt_Click(object sender, EventArgs e)
         {
-    
-        }
-
-        private void bFilters_Click(object sender, EventArgs e)
-        {
-
             //Creating iTextSharp Table from the DataTable data
             PdfPTable pdfTable = new PdfPTable(gridProductionData.ColumnCount);
             pdfTable.DefaultCell.Padding = 3;
@@ -67,9 +63,9 @@ namespace metrostylegui
             pdfTable.DefaultCell.BorderWidth = 0;
             // font definitions
             BaseFont bdeffTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-            Font font_column = new Font(bdeffTimes, 10, 3, Color.DARK_GRAY);
-            Font font_cell = new Font(bdeffTimes, 8, 3, Color.DARK_GRAY);
-            Font font_header = new Font(bdeffTimes, 22, 3, Color.RED);
+            Font font_column = new Font(bdeffTimes, 8, 3, Color.DARK_GRAY);
+            Font font_cell = new Font(bdeffTimes, 6, 3, Color.DARK_GRAY);
+            Font font_header = new Font(bdeffTimes, 12, 3, Color.RED);
 
             //Adding Header row
             foreach (DataGridViewColumn column in gridProductionData.Columns)
@@ -88,7 +84,7 @@ namespace metrostylegui
                 }
             }
             // Add Image
-            iTextSharp.text.Image logo_Jpg = iTextSharp.text.Image.GetInstance(@"C:\PDFs\jaguarland.jpg");
+            iTextSharp.text.Image logo_Jpg = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\jaguarland.jpg"); //(@"C:\PDFs\jaguarland.jpg");
             //Resize image depend upon your need
 
             logo_Jpg.ScaleToFit(70f, 70f);
@@ -103,37 +99,83 @@ namespace metrostylegui
 
             logo_Jpg.Alignment = Element.ALIGN_RIGHT;
 
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Please chose destination for save report file... ";
+            DialogResult dr = fbd.ShowDialog();
+            string folderPath = "";
+            if (dr == DialogResult.OK)
+            {
+                var savedir = (fbd.SelectedPath.ToString() + @"\");
+             folderPath  = savedir;
+                Properties.Settings.Default.SavePath = savedir;
+                Properties.Settings.Default.Save();
+            }
             //Exporting to PDF
-            string folderPath = "C:\\PDFs\\";
+       //     = @"C:\Service\Backup\4. Raports\";   //C:\Service\Backup\4. Raports
 
             // source input 
-            Paragraph headertext = new Paragraph("Summary Report for: ", font_header);
+            string loginID = DmsSession.LoggedUserDisplayName;
+            Paragraph headertext = new Paragraph("Summary Report for: "+ loginID, font_header);
             Paragraph lastupdatetext = new Paragraph("Created time " + DateTime.Now.ToString(), font_column);
             Paragraph emptylinetext = new Paragraph(" ");
 
             headertext.Alignment = Element.ALIGN_CENTER;
             lastupdatetext.Alignment = Element.ALIGN_RIGHT;
+            try
+            {
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
 
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
+
+                using (FileStream stream = new FileStream(folderPath + "ProductionReport" + DateTime.Now.ToString("_yyyy_MM_dd_HH_mm_ss") + ".pdf", FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 50f, 50f, 30f, 30f);
+                    PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+                    pdfDoc.Add(logo_Jpg);
+                    pdfDoc.Add(headertext);
+                    pdfDoc.Add(emptylinetext);
+                    pdfDoc.Add(pdfTable);
+                    pdfDoc.Add(emptylinetext);
+                    pdfDoc.Add(emptylinetext);
+                    pdfDoc.Add(lastupdatetext);
+                    pdfDoc.Close();
+                    stream.Close();
+                }
             }
-            using (FileStream stream = new FileStream(folderPath + "DataGridViewExport" + DateTime.Now.ToString("_yyyy_MM_dd_HH_mm_ss") + ".pdf", FileMode.Create))
+            catch (Exception ex)
             {
-                Document pdfDoc = new Document(PageSize.A4, 50f, 50f, 30f, 30f);
-                PdfWriter.GetInstance(pdfDoc, stream);
-                pdfDoc.Open();
-                pdfDoc.Add(logo_Jpg);
-                pdfDoc.Add(headertext);
-                pdfDoc.Add(emptylinetext);
-                pdfDoc.Add(emptylinetext);
-                pdfDoc.Add(pdfTable);
-                pdfDoc.Add(emptylinetext);
-                pdfDoc.Add(emptylinetext);
-                pdfDoc.Add(lastupdatetext);
-                pdfDoc.Close();
-                stream.Close();
+                MetroFramework.MetroMessageBox.Show(this, "Save procedure was canceled", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+        }
+        DmsForm_Filer filtersForm;
+        private void bFilters_Click(object sender, EventArgs e)
+        {
+            if (filtersForm == null)
+            {
+                filtersForm = new DmsForm_Filer();
+                filtersForm.FormClosing += factoryForm_FormClosing;
+            }
+            filtersForm.Show();
+            if (filtersForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
+            {
+                filtersForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            }
+            if (!filtersForm.Focused)
+            {
+                filtersForm.Focus();
+            }
+        }
+        private void factoryForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            if (filtersForm != null)
+            {
+                filtersForm.FormClosing -= factoryForm_FormClosing;
+            }
+            filtersForm = null;
+
         }
     }
 }

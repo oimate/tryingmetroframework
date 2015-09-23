@@ -34,17 +34,14 @@
             this.panFilters = new MetroFramework.Controls.MetroPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bTxt = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.bFilters = new MetroFramework.Controls.MetroButton();
             this.bSearch = new MetroFramework.Controls.MetroButton();
             this.panTable = new MetroFramework.Controls.MetroPanel();
             this.gridProductionData = new MetroFramework.Controls.MetroGrid();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panFilters.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductionData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panFilters
@@ -56,7 +53,7 @@
             this.panFilters.HorizontalScrollbarSize = 10;
             this.panFilters.Location = new System.Drawing.Point(20, 60);
             this.panFilters.Name = "panFilters";
-            this.panFilters.Size = new System.Drawing.Size(760, 33);
+            this.panFilters.Size = new System.Drawing.Size(1001, 33);
             this.panFilters.Style = MetroFramework.MetroColorStyle.Blue;
             this.panFilters.TabIndex = 0;
             this.panFilters.UseStyleColors = true;
@@ -77,7 +74,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.bTxt, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroButton1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.bFilters, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.bSearch, 5, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -85,13 +81,14 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 33);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1001, 33);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // bTxt
             // 
             this.bTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bTxt.Location = new System.Drawing.Point(571, 3);
+            this.bTxt.Enabled = false;
+            this.bTxt.Location = new System.Drawing.Point(812, 3);
             this.bTxt.Name = "bTxt";
             this.bTxt.Size = new System.Drawing.Size(58, 27);
             this.bTxt.Style = MetroFramework.MetroColorStyle.Orange;
@@ -101,22 +98,10 @@
             this.bTxt.UseStyleColors = true;
             this.bTxt.Click += new System.EventHandler(this.bTxt_Click);
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroButton1.Location = new System.Drawing.Point(507, 3);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(58, 27);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroButton1.TabIndex = 0;
-            this.metroButton1.Text = "csv";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.UseStyleColors = true;
-            // 
             // bFilters
             // 
             this.bFilters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bFilters.Location = new System.Drawing.Point(635, 3);
+            this.bFilters.Location = new System.Drawing.Point(876, 3);
             this.bFilters.Name = "bFilters";
             this.bFilters.Size = new System.Drawing.Size(58, 27);
             this.bFilters.Style = MetroFramework.MetroColorStyle.Blue;
@@ -129,7 +114,7 @@
             // bSearch
             // 
             this.bSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bSearch.Location = new System.Drawing.Point(699, 3);
+            this.bSearch.Location = new System.Drawing.Point(940, 3);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(58, 27);
             this.bSearch.Style = MetroFramework.MetroColorStyle.Green;
@@ -148,7 +133,7 @@
             this.panTable.HorizontalScrollbarSize = 10;
             this.panTable.Location = new System.Drawing.Point(20, 93);
             this.panTable.Name = "panTable";
-            this.panTable.Size = new System.Drawing.Size(760, 487);
+            this.panTable.Size = new System.Drawing.Size(1001, 649);
             this.panTable.Style = MetroFramework.MetroColorStyle.Blue;
             this.panTable.TabIndex = 3;
             this.panTable.UseStyleColors = true;
@@ -204,27 +189,16 @@
             this.gridProductionData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridProductionData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridProductionData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductionData.Size = new System.Drawing.Size(760, 487);
+            this.gridProductionData.Size = new System.Drawing.Size(1001, 649);
             this.gridProductionData.Style = MetroFramework.MetroColorStyle.Blue;
             this.gridProductionData.TabIndex = 0;
             this.gridProductionData.UseStyleColors = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::metrostylegui.Properties.Resources.jaguarland;
-            this.pictureBox1.Location = new System.Drawing.Point(723, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 44);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // DmsForm_ProductionData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1041, 762);
             this.Controls.Add(this.panTable);
             this.Controls.Add(this.panFilters);
             this.Name = "DmsForm_ProductionData";
@@ -234,7 +208,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductionData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,8 +220,6 @@
         private MetroFramework.Controls.MetroButton bSearch;
         private MetroFramework.Controls.MetroGrid gridProductionData;
         private MetroFramework.Controls.MetroButton bTxt;
-        private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton bFilters;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

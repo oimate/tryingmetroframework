@@ -106,31 +106,31 @@ namespace metrostylegui
             //this.WindowState = System.Windows.Forms.FormWindowState.Normal;
         }
 
-        DmsForm_Filer factoryForm;
+ //       DmsForm_Filer factoryForm;
         private void tileFactory_Click(object sender, System.EventArgs e)
         {
-            if (factoryForm == null)
-            {
-                factoryForm = new DmsForm_Filer();
-                factoryForm.FormClosing += factoryForm_FormClosing;
-            }
-            factoryForm.Show();
-            if (factoryForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
-            {
-                factoryForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            }
-            if (!factoryForm.Focused)
-            {
-                factoryForm.Focus();
-            }
-        }
-        private void factoryForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        {
-            if (factoryForm != null)
-            {
-                factoryForm.FormClosing -= factoryForm_FormClosing;
-            }
-            factoryForm = null;
+        //    if (factoryForm == null)
+        //    {
+        //        factoryForm = new DmsForm_Filer();
+        //        factoryForm.FormClosing += factoryForm_FormClosing;
+        //    }
+        //    factoryForm.Show();
+        //    if (factoryForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
+        //    {
+        //        factoryForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+        //    }
+        //    if (!factoryForm.Focused)
+        //    {
+        //        factoryForm.Focus();
+        //    }
+        //}
+        //private void factoryForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        //{
+        //    if (factoryForm != null)
+        //    {
+        //        factoryForm.FormClosing -= factoryForm_FormClosing;
+        //    }
+        //    factoryForm = null;
         }
 
         private void tilePlcStatus_Click(object sender, System.EventArgs e)

@@ -35,7 +35,9 @@
             this.tilePlcStatus = new MetroFramework.Controls.MetroTile();
             this.tileDatabaseStatus = new MetroFramework.Controls.MetroTile();
             this.bgCon = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutStatus
@@ -51,6 +53,7 @@
             this.tableLayoutStatus.Controls.Add(this.tileLoginLogout, 1, 2);
             this.tableLayoutStatus.Controls.Add(this.tilePlcStatus, 1, 5);
             this.tableLayoutStatus.Controls.Add(this.tileDatabaseStatus, 2, 5);
+            this.tableLayoutStatus.Controls.Add(this.pictureBox1, 3, 0);
             this.tableLayoutStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutStatus.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutStatus.Location = new System.Drawing.Point(5, 60);
@@ -153,6 +156,16 @@
             // 
             this.bgCon.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgCon_DoWork);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::metrostylegui.Properties.Resources.jaguarland;
+            this.pictureBox1.Location = new System.Drawing.Point(598, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(113, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // DmsForm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +179,7 @@
             this.Text = "dms";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.tableLayoutStatus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,6 +193,7 @@
         private MetroFramework.Controls.MetroTile tileFactory;
         private MetroFramework.Controls.MetroTile tileERP;
         private System.ComponentModel.BackgroundWorker bgCon;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
 
 
