@@ -27,11 +27,11 @@ namespace metrostylegui
         {
             gridProductionData.AutoResizeColumns();
             gridProductionData.Columns["Id"].Visible = false;
-            gridProductionData.Columns["rowNum"].Visible = false;
-            gridProductionData.Columns[5].HeaderText = "Body";
-            gridProductionData.Columns[6].HeaderText = "Plastic";
-            gridProductionData.Columns[7].HeaderText = "Adress";
-            gridProductionData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+       //     gridProductionData.Columns["rowNum"].Visible = false;
+       //     gridProductionData.Columns[5].HeaderText = "Body";
+       //     gridProductionData.Columns[6].HeaderText = "Plastic";
+       //     gridProductionData.Columns[7].HeaderText = "Adress";
+            gridProductionData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void Costam(object sender, EventArgs e)
@@ -46,8 +46,9 @@ namespace metrostylegui
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-
-            gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 200);
+          
+            gridProductionData.DataSource = DmsDatabase.GetErpProduction(0);
+          //  gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 500);
             ReStyleDataGrid();
             bTxt.Enabled = true;
         }
@@ -176,6 +177,23 @@ namespace metrostylegui
             }
             filtersForm = null;
 
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            gridProductionData.DataSource = DmsDatabase.GetErpProduction(1);
+            //  gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 500);
+            ReStyleDataGrid();
+            bTxt.Enabled = true;
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            gridProductionData.DataSource = DmsDatabase.GetErpSkidData(27);
+         //   gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 1000);
+            //  gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 500);
+            ReStyleDataGrid();
+            bTxt.Enabled = true;
         }
     }
 }

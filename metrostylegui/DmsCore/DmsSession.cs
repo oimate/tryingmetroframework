@@ -49,7 +49,7 @@ namespace metrostylegui
             }
         }
 
-        private static string connectionString = "Data Source=dbmachine\\durr_systems;Initial Catalog=EMOS_WEB;Persist Security Info=True;User ID=user;Password=user;Connection Timeout = 5";
+        private static string connectionString = "Data Source=dbmachine\\durr_systems;Initial Catalog=EMOS_WEB;Persist Security Info=True;User ID=user;Password=user;Connection Timeout = 16";
         internal static string ConnectionString { get { return connectionString; } set { connectionString = value; } }
     }
 }

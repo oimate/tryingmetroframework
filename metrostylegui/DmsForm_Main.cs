@@ -1,6 +1,9 @@
 ﻿using MetroFramework.Controls;
 using MetroFramework.Forms;
-
+using System;
+using System.Drawing;
+using System.Globalization;
+using System.Data;
 //using System.Drawing;
 //using System.Windows.Forms;
 
@@ -109,6 +112,9 @@ namespace metrostylegui
  //       DmsForm_Filer factoryForm;
         private void tileFactory_Click(object sender, System.EventArgs e)
         {
+
+      //      metroStyleManager.Theme = metroStyleManager.Theme == MetroThemeStyle.Light ? MetroThemeStyle.Dark : MetroThemeStyle.Light;
+
         //    if (factoryForm == null)
         //    {
         //        factoryForm = new DmsForm_Filer();

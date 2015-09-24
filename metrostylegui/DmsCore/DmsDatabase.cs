@@ -50,6 +50,19 @@ namespace metrostylegui
             return adapter.SelectRange(offset, limit);
         }
 
+        public static System.Data.DataTable GetErpProduction(int lefplant_status)
+        {
+            var adapter = new DmsDatabase.Adapters.DMS_ERP();
+            return adapter.SelecctStatus(lefplant_status);
+        }
+
+                public static System.Data.DataTable GetErpSkidData(int foreignskid)
+        {
+            var adapter = new DmsDatabase.Adapters.DMS_ERP();
+            return adapter.SelecctSkidData(foreignskid);
+        }
+
+
         public class DmsUser
         {
             #region Properties
@@ -1509,7 +1522,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                 private void InitCommandCollection()
                 {
-                    this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+                    this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
 
                     #region Command 0
                     this._commandCollection[0] = new System.Data.SqlClient.SqlCommand();
@@ -1565,11 +1578,28 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
                     //this._commandCollection[5].Parameters.Add(new System.Data.SqlClient.SqlParameter("@display_name", System.Data.SqlDbType.NVarChar, 256, System.Data.ParameterDirection.Input, 0, 0, "display_name", System.Data.DataRowVersion.Current, false, null, "", "", ""));
                     //this._commandCollection[5].Parameters.Add(new System.Data.SqlClient.SqlParameter("@pwd", System.Data.SqlDbType.NVarChar, 512, System.Data.ParameterDirection.Input, 0, 0, "pwd", System.Data.DataRowVersion.Current, false, null, "", "", ""));
                     #endregion
+
+                    #region Command 6  search units by paramter Left lant
+                    this._commandCollection[6] = new System.Data.SqlClient.SqlCommand();
+                    this._commandCollection[6].Connection = this.Connection;
+                    this._commandCollection[6].CommandText = @"Select * from DMS_ERP where (LeftPlant = @leftplant)";
+                    this._commandCollection[6].CommandType = System.Data.CommandType.Text;
+                    this._commandCollection[6].Parameters.Add(new System.Data.SqlClient.SqlParameter("@leftplant", System.Data.SqlDbType.Int));                 
+                    #endregion
+
+                    #region Command 7  search units by paramter fkid id
+                    this._commandCollection[7] = new System.Data.SqlClient.SqlCommand();
+                    this._commandCollection[7].Connection = this.Connection;
+                    this._commandCollection[7].CommandText = @"Select * from DMS_ERP where (ForeignSkid = @foreignskid)";
+                    this._commandCollection[7].CommandType = System.Data.CommandType.Text;
+                    this._commandCollection[7].Parameters.Add(new System.Data.SqlClient.SqlParameter("@foreignskid", System.Data.SqlDbType.Int));
+                    #endregion
+
                 }
 
                 internal System.Data.DataTable SelectRange(int offset, int limit)
                 {
-                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];   //bylo 1
                     command.Parameters[0].Value = offset;
                     command.Parameters[1].Value = limit;
 
@@ -1612,6 +1642,98 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
+
+                internal System.Data.DataTable SelecctStatus (int leftplant)
+                {
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];   //bylo 1
+                    command.Parameters[0].Value = leftplant;
+                    //   command.Parameters[1].Value = limit;
+
+                    //var dt = new DMS_ERP_DT();
+                    var dt = new System.Data.DataTable();
+
+                    System.Data.ConnectionState previousConnectionState = command.Connection.State;
+                    if (((command.Connection.State & System.Data.ConnectionState.Open)
+                                != System.Data.ConnectionState.Open))
+                    {
+                        command.Connection.Open();
+                    }
+
+                    try
+                    {
+                        var reader = command.ExecuteReader();
+
+                        try
+                        {
+                            dt.Load(reader, System.Data.LoadOption.OverwriteChanges);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notes.Log(ex);
+                            return null;
+                        }
+                        finally
+                        {
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                    finally
+                    {
+                        if ((previousConnectionState == System.Data.ConnectionState.Closed))
+                        {
+                            command.Connection.Close();
+                        }
+                    }
+
+                    return dt;
+                }
+                internal System.Data.DataTable SelecctSkidData(int foreignskid)
+                {
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];   //bylo 1
+                    command.Parameters[0].Value = foreignskid;
+                    //   command.Parameters[1].Value = limit;
+
+                    //var dt = new DMS_ERP_DT();
+                    var dt = new System.Data.DataTable();
+
+                    System.Data.ConnectionState previousConnectionState = command.Connection.State;
+                    if (((command.Connection.State & System.Data.ConnectionState.Open)
+                                != System.Data.ConnectionState.Open))
+                    {
+                        command.Connection.Open();
+                    }
+
+                    try
+                    {
+                        var reader = command.ExecuteReader();
+
+                        try
+                        {
+                            dt.Load(reader, System.Data.LoadOption.OverwriteChanges);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notes.Log(ex);
+                            return null;
+                        }
+                        finally
+                        {
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                    finally
+                    {
+                        if ((previousConnectionState == System.Data.ConnectionState.Closed))
+                        {
+                            command.Connection.Close();
+                        }
+                    }
+
+                    return dt;
+                }
+
             }
             #endregion
 
