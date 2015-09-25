@@ -29,18 +29,14 @@
         private void InitializeComponent()
         {
             this.tbLoadL5X = new MetroFramework.Controls.MetroTextBox();
-            this.metroCheckBox8 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox7 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox6 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
-            this.btFiltersave = new MetroFramework.Controls.MetroTile();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
-            this.btFilterReset = new MetroFramework.Controls.MetroTile();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
@@ -51,7 +47,8 @@
             this.tbLoadL5X.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbLoadL5X.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.tbLoadL5X.IconRight = true;
-            this.tbLoadL5X.Lines = new string[0];
+            this.tbLoadL5X.Lines = new string[] {
+        "0"};
             this.tbLoadL5X.Location = new System.Drawing.Point(356, 152);
             this.tbLoadL5X.MaxLength = 32767;
             this.tbLoadL5X.Name = "tbLoadL5X";
@@ -60,64 +57,45 @@
             this.tbLoadL5X.SelectedText = "";
             this.tbLoadL5X.Size = new System.Drawing.Size(155, 35);
             this.tbLoadL5X.TabIndex = 23;
+            this.tbLoadL5X.Text = "0";
             this.tbLoadL5X.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbLoadL5X.UseSelectable = true;
             this.tbLoadL5X.UseStyleColors = true;
-            // 
-            // metroCheckBox8
-            // 
-            this.metroCheckBox8.AutoSize = true;
-            this.metroCheckBox8.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.metroCheckBox8.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.metroCheckBox8.Location = new System.Drawing.Point(23, 173);
-            this.metroCheckBox8.Name = "metroCheckBox8";
-            this.metroCheckBox8.Size = new System.Drawing.Size(145, 19);
-            this.metroCheckBox8.TabIndex = 36;
-            this.metroCheckBox8.Text = "Serach by Skid Nr";
-            this.metroCheckBox8.UseSelectable = true;
+            this.tbLoadL5X.TextChanged += new System.EventHandler(this.tbLoadL5X_TextChanged);
             // 
             // metroCheckBox7
             // 
             this.metroCheckBox7.AutoSize = true;
             this.metroCheckBox7.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
             this.metroCheckBox7.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.metroCheckBox7.Location = new System.Drawing.Point(23, 194);
+            this.metroCheckBox7.Location = new System.Drawing.Point(23, 133);
             this.metroCheckBox7.Name = "metroCheckBox7";
-            this.metroCheckBox7.Size = new System.Drawing.Size(116, 19);
+            this.metroCheckBox7.Size = new System.Drawing.Size(88, 19);
             this.metroCheckBox7.TabIndex = 35;
-            this.metroCheckBox7.Text = "Unit left plant";
+            this.metroCheckBox7.Text = "Left plant";
             this.metroCheckBox7.UseSelectable = true;
+            this.metroCheckBox7.CheckedChanged += new System.EventHandler(this.metroCheckBox7_CheckedChanged);
             // 
             // metroCheckBox6
             // 
             this.metroCheckBox6.AutoSize = true;
             this.metroCheckBox6.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
             this.metroCheckBox6.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.metroCheckBox6.Location = new System.Drawing.Point(23, 215);
+            this.metroCheckBox6.Location = new System.Drawing.Point(23, 154);
             this.metroCheckBox6.Name = "metroCheckBox6";
             this.metroCheckBox6.Size = new System.Drawing.Size(117, 19);
             this.metroCheckBox6.TabIndex = 34;
             this.metroCheckBox6.Text = "Search Plastic";
             this.metroCheckBox6.UseSelectable = true;
-            // 
-            // metroCheckBox4
-            // 
-            this.metroCheckBox4.AutoSize = true;
-            this.metroCheckBox4.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.metroCheckBox4.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.metroCheckBox4.Location = new System.Drawing.Point(23, 152);
-            this.metroCheckBox4.Name = "metroCheckBox4";
-            this.metroCheckBox4.Size = new System.Drawing.Size(144, 19);
-            this.metroCheckBox4.TabIndex = 33;
-            this.metroCheckBox4.Text = "Search by BSN Nr";
-            this.metroCheckBox4.UseSelectable = true;
+            this.metroCheckBox6.CheckedChanged += new System.EventHandler(this.metroCheckBox6_CheckedChanged);
             // 
             // metroTextBox1
             // 
             this.metroTextBox1.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.metroTextBox1.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
             this.metroTextBox1.IconRight = true;
-            this.metroTextBox1.Lines = new string[0];
+            this.metroTextBox1.Lines = new string[] {
+        "0"};
             this.metroTextBox1.Location = new System.Drawing.Point(174, 152);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
@@ -126,9 +104,11 @@
             this.metroTextBox1.SelectedText = "";
             this.metroTextBox1.Size = new System.Drawing.Size(155, 35);
             this.metroTextBox1.TabIndex = 38;
+            this.metroTextBox1.Text = "0";
             this.metroTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.UseStyleColors = true;
+            this.metroTextBox1.TextChanged += new System.EventHandler(this.metroTextBox1_TextChanged);
             // 
             // metroDateTime1
             // 
@@ -139,6 +119,7 @@
             this.metroDateTime1.ShowCheckBox = true;
             this.metroDateTime1.Size = new System.Drawing.Size(213, 29);
             this.metroDateTime1.TabIndex = 39;
+            this.metroDateTime1.ValueChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
             // metroDateTime2
             // 
@@ -149,17 +130,7 @@
             this.metroDateTime2.ShowCheckBox = true;
             this.metroDateTime2.Size = new System.Drawing.Size(213, 29);
             this.metroDateTime2.TabIndex = 40;
-            // 
-            // btFiltersave
-            // 
-            this.btFiltersave.ActiveControl = null;
-            this.btFiltersave.Location = new System.Drawing.Point(428, 202);
-            this.btFiltersave.Name = "btFiltersave";
-            this.btFiltersave.Size = new System.Drawing.Size(80, 80);
-            this.btFiltersave.TabIndex = 41;
-            this.btFiltersave.Text = "Finish";
-            this.btFiltersave.UseSelectable = true;
-            this.btFiltersave.Click += new System.EventHandler(this.btFiltersave_Click);
+            this.metroDateTime2.ValueChanged += new System.EventHandler(this.metroDateTime2_ValueChanged);
             // 
             // metroLabel1
             // 
@@ -199,17 +170,6 @@
             this.metroTextBox2.UseSelectable = true;
             this.metroTextBox2.UseStyleColors = true;
             // 
-            // btFilterReset
-            // 
-            this.btFilterReset.ActiveControl = null;
-            this.btFilterReset.Location = new System.Drawing.Point(330, 202);
-            this.btFilterReset.Name = "btFilterReset";
-            this.btFilterReset.Size = new System.Drawing.Size(80, 43);
-            this.btFilterReset.TabIndex = 46;
-            this.btFilterReset.Text = "Reset";
-            this.btFilterReset.UseSelectable = true;
-            this.btFilterReset.Click += new System.EventHandler(this.btFilterReset_Click);
-            // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
@@ -233,32 +193,29 @@
             this.metroCheckBox1.AutoSize = true;
             this.metroCheckBox1.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
             this.metroCheckBox1.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.metroCheckBox1.Location = new System.Drawing.Point(22, 238);
+            this.metroCheckBox1.Location = new System.Drawing.Point(22, 177);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(101, 19);
             this.metroCheckBox1.TabIndex = 49;
             this.metroCheckBox1.Text = "Search Unit";
             this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // DmsForm_Filer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 299);
+            this.ClientSize = new System.Drawing.Size(541, 223);
             this.Controls.Add(this.metroCheckBox1);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.btFilterReset);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.btFiltersave);
             this.Controls.Add(this.metroDateTime2);
             this.Controls.Add(this.metroDateTime1);
             this.Controls.Add(this.metroTextBox1);
-            this.Controls.Add(this.metroCheckBox8);
             this.Controls.Add(this.metroCheckBox7);
             this.Controls.Add(this.metroCheckBox6);
-            this.Controls.Add(this.metroCheckBox4);
             this.Controls.Add(this.tbLoadL5X);
             this.Controls.Add(this.metroTextBox2);
             this.Name = "DmsForm_Filer";
@@ -274,18 +231,14 @@
         #endregion
 
         private MetroFramework.Controls.MetroTextBox tbLoadL5X;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox8;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox7;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox6;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox4;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private MetroFramework.Controls.MetroDateTime metroDateTime2;
-        private MetroFramework.Controls.MetroTile btFiltersave;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox metroTextBox2;
-        private MetroFramework.Controls.MetroTile btFilterReset;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;

@@ -17,7 +17,7 @@ namespace metrostylegui
         {
             InitializeComponent();
 
-            client = new TCP.TCP_MasterSlave(TCP.ServerType.Client, "10.10.1.240", 4242, "dmsCli");
+            client = new TCP.TCP_MasterSlave(TCP.ServerType.Client, "192.168.49.191", 4242, "dmsCli");
             client.ReceiveData = GetConnectionString;
             bgCon.RunWorkerAsync();
         }

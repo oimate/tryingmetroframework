@@ -79,6 +79,16 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_enable {
+            get {
+                object obj = ResourceManager.GetObject("edit enable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name:.
         /// </summary>
         internal static string FirstName {
@@ -158,6 +168,46 @@ namespace metrostylegui.Properties {
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf_logo {
+            get {
+                object obj = ResourceManager.GetObject("pdf_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf2_logo {
+            get {
+                object obj = ResourceManager.GetObject("pdf2_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf3_logo {
+            get {
+                object obj = ResourceManager.GetObject("pdf3_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unselect_all {
+            get {
+                object obj = ResourceManager.GetObject("unselect all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
