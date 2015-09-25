@@ -28,7 +28,7 @@ namespace metrostylegui
         {
             gridProductionData.AutoResizeColumns();
             gridProductionData.Columns["Id"].Visible = false;
-            //     gridProductionData.Columns["rowNum"].Visible = false;
+             //    gridProductionData.Columns["rowNum"].Visible = true;
             //     gridProductionData.Columns[5].HeaderText = "Body";
             //     gridProductionData.Columns[6].HeaderText = "Plastic";
             //     gridProductionData.Columns[7].HeaderText = "Adress";
@@ -71,6 +71,11 @@ namespace metrostylegui
                 if (filtersForm.Bsn_nr != 0)
                 {
                     gridProductionData.DataSource = DmsDatabase.GetErpBnsData(filtersForm.Bsn_nr, filtersForm.CB_LeftPlant);                    
+                }
+
+                if (filtersForm.Bsn_nr ==0 && filtersForm.Sk_nr == 0)
+                {
+                                gridProductionData.DataSource = DmsDatabase.GetErpProduction(filtersForm.CB_LeftPlant);
                 }
             }
 
@@ -206,7 +211,7 @@ namespace metrostylegui
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            gridProductionData.DataSource = DmsDatabase.GetErpProduction(1);
+
             //  gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 500);
             ReStyleDataGrid();
             bTxt.Enabled = true;
