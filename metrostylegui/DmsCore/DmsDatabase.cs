@@ -47,39 +47,43 @@ namespace metrostylegui
         public static System.Data.DataTable GetErpWithRange(int offset, int limit)
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
-            return adapter.SelectRange(offset, limit);
+            return adapter.ERP_SelectRange(offset, limit);
         }
 
         public static System.Data.DataTable GetErpProduction(int lefplant_status)
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
-            return adapter.SelecctStatus(lefplant_status);
+            return adapter.ERP_SelecctStatus(lefplant_status);
         }
 
         public static System.Data.DataTable GetErpSkidData(int foreignskid,int leftplant)
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
-            return adapter.SelecctBySkidnr(foreignskid, leftplant);
+            return adapter.ERP_SelecctBySkidnr(foreignskid, leftplant);
         }
 
         public static System.Data.DataTable DeleteRow(int foreignskid, int leftplant_status)
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
-            return adapter.DeleteRow(foreignskid, leftplant_status);
+            return adapter.ERP_DeleteRow(foreignskid, leftplant_status);
         }
 
         public static System.Data.DataTable GetErpBnsData (int bsn, int leftplant)
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
-            return adapter.SelectByBSNnr(bsn, leftplant);
+            return adapter.ERP_SelectByBSNnr(bsn, leftplant);
         }
 
-        public static System.Data.DataTable GetErTop1000()
+        public static System.Data.DataTable GetErTop2000()
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
             return adapter.SelecTop1000 ();
         }
-
+        public static System.Data.DataTable MFP_GetStatusSkidFactory()
+        {
+            var adapter = new DmsDatabase.Adapters.DMS_ERP();
+            return adapter.MFP_SelectUnitsOnFactory();
+        }
 
         public class DmsUser
         {
@@ -1554,12 +1558,12 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                 private void InitCommandCollection()
                 {
-                    this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
+                    this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
 
                     #region Command 0
                     this._commandCollection[0] = new System.Data.SqlClient.SqlCommand();
                     this._commandCollection[0].Connection = this.Connection;
-                    this._commandCollection[0].CommandText = @"SELECT TOP 1000 * FROM dbo.DMS_ERP";
+                    this._commandCollection[0].CommandText = @"SELECT TOP 2000 * FROM dbo.DMS_ERP";
                     this._commandCollection[0].CommandType = System.Data.CommandType.Text;
                     #endregion
 
@@ -1645,6 +1649,13 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
                     this._commandCollection[9].Parameters.Add(new System.Data.SqlClient.SqlParameter("@bsn", System.Data.SqlDbType.Int));
                     this._commandCollection[9].Parameters.Add(new System.Data.SqlClient.SqlParameter("@leftplant", System.Data.SqlDbType.Int));
                     #endregion
+
+                    #region Command 10  search units in MFP on plant 
+                    this._commandCollection[10] = new System.Data.SqlClient.SqlCommand();
+                    this._commandCollection[10].Connection = this.Connection;
+                    this._commandCollection[10].CommandText = @"Select * from DMS_ERP join DMS_MFP on DMS_ERP.ForeignSkid = DMS_MFP.fk_LocalSkidNr join DMS_MFPDesc on DMS_MFP.MfpPos = DMS_MFPDesc.fk_MfpPos  where DMS_ERP.LeftPlant = '0'";                  
+                    this._commandCollection[10].CommandType = System.Data.CommandType.Text;
+                    #endregion
                 }
                 internal System.Data.DataTable SelecTop1000()
                 {
@@ -1690,7 +1701,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
                     return dt;
                 }
 
-                internal System.Data.DataTable SelectRange(int offset, int limit)
+                internal System.Data.DataTable ERP_SelectRange(int offset, int limit)
                 {
                     System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];   //bylo 1
                     command.Parameters[0].Value = offset;
@@ -1735,7 +1746,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
-                internal System.Data.DataTable SelecctStatus(int leftplant)
+                internal System.Data.DataTable ERP_SelecctStatus(int leftplant)
                 {
                     System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];   //bylo 1
                     command.Parameters[0].Value = leftplant;
@@ -1780,7 +1791,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
-                internal System.Data.DataTable SelecctBySkidnr(int foreignskid, int leftplant)
+                internal System.Data.DataTable ERP_SelecctBySkidnr(int foreignskid, int leftplant)
                 {
                     System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];   //bylo 1
                     command.Parameters[0].Value = foreignskid;
@@ -1825,7 +1836,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
-                internal System.Data.DataTable DeleteRow(int foreignskid, int leftplant)
+                internal System.Data.DataTable ERP_DeleteRow(int foreignskid, int leftplant)
                 {
                     System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
                     command.Parameters[0].Value = foreignskid;
@@ -1870,7 +1881,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
-                internal System.Data.DataTable SelectByBSNnr(int bsn, int leftplant)
+                internal System.Data.DataTable ERP_SelectByBSNnr(int bsn, int leftplant)
                 {
                     System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
                     command.Parameters[0].Value = bsn;
@@ -1915,9 +1926,48 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
+                internal System.Data.DataTable MFP_SelectUnitsOnFactory()
+                {
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
+                    //var dt = new DMS_ERP_DT();
+                    var dt = new System.Data.DataTable();
 
+                    System.Data.ConnectionState previousConnectionState = command.Connection.State;
+                    if (((command.Connection.State & System.Data.ConnectionState.Open)
+                                != System.Data.ConnectionState.Open))
+                    {
+                        command.Connection.Open();
+                    }
 
+                    try
+                    {
+                        var reader = command.ExecuteReader();
 
+                        try
+                        {
+                            dt.Load(reader, System.Data.LoadOption.OverwriteChanges);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notes.Log(ex);
+                            return null;
+                        }
+                        finally
+                        {
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                    finally
+                    {
+                        if ((previousConnectionState == System.Data.ConnectionState.Closed))
+                        {
+                            command.Connection.Close();
+                        }
+                    }
+
+                    return dt;
+                }
             }
             #endregion
 

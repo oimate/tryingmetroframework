@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace metrostylegui
 {
-    public partial class DmsForm_Filer : MetroFramework.Forms.MetroForm 
+    public partial class DmsForm_Filer : MetroFramework.Forms.MetroForm
     {
         public DmsForm_Filer()
         {
@@ -40,7 +40,7 @@ namespace metrostylegui
             get { return datatime1_checked; }
         }
 
-        private int sk_nr ;
+        private int sk_nr;
         public int Sk_nr
         {
             get { return sk_nr; }
@@ -57,19 +57,23 @@ namespace metrostylegui
         {
             get { return cb_leftplant; }
         }
-        private bool cb_serchunit;
-        public bool CB_SerchUnit
+        private bool cb_searchinERP;
+        public bool CB_SearchinERP
         {
-            get { return cb_serchunit; }
+            get { return cb_searchinERP; }
         }
-        private bool cb_serchplastic;
-        public bool CB_serchplastic
+        private bool cb_searchinMFP;
+        public bool CB_searchinMFP
         {
-            get { return cb_serchplastic; }
+            get { return cb_searchinMFP; }
         }
 
+        private bool cb_hidecolumnsdatagrid;
+        public bool CB_hidecolumnsdatagrid
+        {
+            get { return cb_hidecolumnsdatagrid; }
+        }
 
-      
 
         private void HandleLoggingOut(object sender, EventArgs e)
         {
@@ -83,13 +87,13 @@ namespace metrostylegui
 
         private void btFiltersave_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, "Actual Filter was saved", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);                   
+            MetroFramework.MetroMessageBox.Show(this, "Actual Filter was saved", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 
         }
 
         private void btFilterReset_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, "All setings was removed", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);                   
+            MetroFramework.MetroMessageBox.Show(this, "All setings was removed", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 
         }
 
@@ -97,7 +101,7 @@ namespace metrostylegui
         {
             datatime2 = metroDateTime2.Value.Date;
             datatime2_checked = metroDateTime2.Checked;
-           
+
         }
 
         private void metroDateTime1_ValueChanged(object sender, EventArgs e)
@@ -108,17 +112,21 @@ namespace metrostylegui
 
         private void metroTextBox1_TextChanged(object sender, EventArgs e)
         {
-            bsn_nr = int.Parse(metroTextBox1.Text);
+            bsn_nr = int.Parse(tb_BsnNr.Text);
         }
 
         private void tbLoadL5X_TextChanged(object sender, EventArgs e)
         {
-            sk_nr = int.Parse(tbLoadL5X.Text);
+            sk_nr = int.Parse(tb_SkidNr.Text);
         }
 
         private void metroCheckBox7_CheckedChanged(object sender, EventArgs e)
         {
-            if (metroCheckBox7.Checked == true)
+            tb_BsnNr.Text = "0";
+            tb_SkidNr.Text = "0";
+            cb_allUnitsOnPlant.Checked = false;
+
+            if (tb_LeftPlant.Checked == true)
             {
                 cb_leftplant = 1;
             }
@@ -130,12 +138,11 @@ namespace metrostylegui
 
         private void metroCheckBox6_CheckedChanged(object sender, EventArgs e)
         {
-            cb_serchplastic = metroCheckBox6.Checked;
-        }
+            cb_searchinMFP = cb_allUnitsOnPlant.Checked;
+            tb_BsnNr.Text = "0";
+            tb_SkidNr.Text = "0";
+            tb_LeftPlant.Checked = false;
 
-        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            cb_serchunit = metroCheckBox1.Checked;
         }
     }
 }

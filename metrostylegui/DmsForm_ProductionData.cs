@@ -15,30 +15,88 @@ using iTextSharp;
 using iTextSharp.text.rtf;
 namespace metrostylegui
 {
-    public partial class DmsForm_ProductionData : MetroFramework.Forms.MetroForm 
+    public partial class DmsForm_ProductionData : MetroFramework.Forms.MetroForm
     {
         public DmsForm_ProductionData()
         {
             InitializeComponent();
             DmsSession.LogingOut += Costam;
         }
-      
+
 
         private void ReStyleDataGrid()
         {
+            if (cb_shotrinfo.Checked == true)
+            {
+                hideOrRenameSomeColumns();
+            }
+
             gridProductionData.AutoResizeColumns();
-            gridProductionData.Columns["Id"].Visible = false;
-             //    gridProductionData.Columns["rowNum"].Visible = true;
-            //     gridProductionData.Columns[5].HeaderText = "Body";
-            //     gridProductionData.Columns[6].HeaderText = "Plastic";
-            //     gridProductionData.Columns[7].HeaderText = "Adress";
             gridProductionData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             if (this.gridProductionData.ContextMenuStrip == null)
             {
                 this.gridProductionData.ContextMenuStrip = this.contextMenuStrip1;
             }
+        }
 
+        private void hideOrRenameSomeColumns()
+        {
+            foreach (DataGridViewColumn column in gridProductionData.Columns)
+            {
+                if (column.HeaderText == "Id")
+                {
+                    column.Visible = false;
+                }
+                if (column.HeaderText == "ForeignSkid")
+                {
+                    column.HeaderText = "Skid ID";
+                }
+                if (column.HeaderText == "Roof")
+                {
+                    column.HeaderText = "Body";
+                }
+                if (column.HeaderText == "Door")
+                {
+                    column.HeaderText = "Plastic";
+                }
+
+                if (column.HeaderText == "Spare")
+                {
+                    column.HeaderText = "Adress";
+                }
+                if (column.HeaderText == "UpdatedOnMfp")
+                {
+                    column.Visible = false;
+                }
+                if (column.HeaderText == "MfpPos")
+                {
+                    column.Visible = false;
+                }
+                if (column.HeaderText == "Description")
+                {
+                    column.Visible = false;
+                }
+
+                if (column.HeaderText == "fk_LocalSkidNr")
+                {
+                    column.Visible = false;
+                }
+
+                if (column.HeaderText == "fk_MfpPos")
+                {
+                    column.Visible = false;
+                }
+                if (column.HeaderText == "Description1")
+                {
+                    column.HeaderText = "Actual Position";
+                }
+
+                if (column.HeaderText == "Track")
+                {
+                    column.Visible = false;
+                }
+            }
         }
 
         private void Costam(object sender, EventArgs e)
@@ -53,34 +111,41 @@ namespace metrostylegui
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-
-            if (filtersForm == null)
+            if (filtersForm != null)
             {
-                gridProductionData.DataSource = DmsDatabase.GetErTop1000();
-        //        gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 2000);
-                filtersForm = new DmsForm_Filer();
-                filtersForm.FormClosing += factoryForm_FormClosing;
+                if (filtersForm.CB_LeftPlant == 0 && filtersForm.CB_SearchinERP == false && filtersForm.CB_searchinMFP == false && filtersForm.Bsn_nr == 0 && filtersForm.Sk_nr == 0)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Filters not selected", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+
+                else
+                {
+                    //  read units on plant MFP
+                    if (filtersForm.CB_searchinMFP)
+                    {
+                        gridProductionData.DataSource = DmsDatabase.MFP_GetStatusSkidFactory();
+                    }
+                    if (filtersForm.CB_SearchinERP)
+                    {
+                        gridProductionData.DataSource = DmsDatabase.GetErpProduction(filtersForm.CB_LeftPlant);
+                    }
+                    if (filtersForm.Sk_nr != 0)
+                    {
+                        gridProductionData.DataSource = DmsDatabase.GetErpSkidData(filtersForm.Sk_nr, filtersForm.CB_LeftPlant);
+                    }
+                    if (filtersForm.Bsn_nr != 0)
+                    {
+                        gridProductionData.DataSource = DmsDatabase.GetErpBnsData(filtersForm.Bsn_nr, filtersForm.CB_LeftPlant);
+                    }
+
+                    ReStyleDataGrid();
+                    bTxt.Enabled = true;
+                }
             }
             else
             {
-                if (filtersForm.Sk_nr != 0)
-                {
-                    gridProductionData.DataSource = DmsDatabase.GetErpSkidData(filtersForm.Sk_nr, filtersForm.CB_LeftPlant);
-                    
-                }
-                if (filtersForm.Bsn_nr != 0)
-                {
-                    gridProductionData.DataSource = DmsDatabase.GetErpBnsData(filtersForm.Bsn_nr, filtersForm.CB_LeftPlant);                    
-                }
-
-                if (filtersForm.Bsn_nr ==0 && filtersForm.Sk_nr == 0)
-                {
-                                gridProductionData.DataSource = DmsDatabase.GetErpProduction(filtersForm.CB_LeftPlant);
-                }
-            }
-
-            ReStyleDataGrid();
-            bTxt.Enabled = true;
+                MetroFramework.MetroMessageBox.Show(this, "Filters not selected", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }      
         }
 
         private void bTxt_Click(object sender, EventArgs e)
@@ -187,7 +252,7 @@ namespace metrostylegui
             if (filtersForm == null)
             {
                 filtersForm = new DmsForm_Filer();
-                filtersForm.FormClosing += factoryForm_FormClosing; 
+                filtersForm.FormClosing += factoryForm_FormClosing;
             }
             filtersForm.Show();
             if (filtersForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
@@ -216,17 +281,6 @@ namespace metrostylegui
             ReStyleDataGrid();
             bTxt.Enabled = true;
         }
-
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-            var test = filtersForm.Datatime2; 
-
-            //   gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 1000);
-            //  gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 500);
-            ReStyleDataGrid();
-            bTxt.Enabled = true;
-        }
-
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow selecteditem in gridProductionData.SelectedRows)
@@ -269,7 +323,7 @@ namespace metrostylegui
             //Adding DataRow
             foreach (DataGridViewRow row in gridProductionData.SelectedRows)
             {
-            skid_value = Int32.Parse(gridProductionData.Rows[row.Index].Cells["ForeignSkid"].Value.ToString());
+                skid_value = Int32.Parse(gridProductionData.Rows[row.Index].Cells["ForeignSkid"].Value.ToString());
 
                 foreach (DataGridViewCell cell in row.Cells)
                 {
@@ -357,7 +411,7 @@ namespace metrostylegui
                 else
                 {
                     bFilters.Style = MetroFramework.MetroColorStyle.Red;
-    
+
 
                 }
             }
@@ -366,6 +420,11 @@ namespace metrostylegui
                 bFilters.Style = MetroFramework.MetroColorStyle.Blue;
             }
             bFilters.Refresh();
+        }
+
+        private void cb_shotrinfo_CheckedChanged(object sender, EventArgs e)
+        {
+            hideOrRenameSomeColumns();
         }
     }
 }
