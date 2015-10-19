@@ -22,14 +22,12 @@ namespace metrostylegui
             InitializeComponent();
             DmsSession.LogingOut += Costam;
         }
-
-
         private void ReStyleDataGrid()
         {
-            if (cb_shotrinfo.Checked == true)
-            {
-                hideOrRenameSomeColumns();
-            }
+            //if (cb_shotrinfo.Checked == true)
+            //{
+     //         hideOrRenameSomeColumns();
+            //}
 
             gridProductionData.AutoResizeColumns();
             gridProductionData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -110,42 +108,35 @@ namespace metrostylegui
         }
 
         private void bSearch_Click(object sender, EventArgs e)
-        {
-            if (filtersForm != null)
+        {          
+            if (tb_BsnNr.Text != "0" || tb_SkindNr.Text != "0" || dt_timeStart.Checked == true || dt_timeEnd.Checked == true)
             {
-                if (filtersForm.CB_LeftPlant == 0 && filtersForm.CB_SearchinERP == false && filtersForm.CB_searchinMFP == false && filtersForm.Bsn_nr == 0 && filtersForm.Sk_nr == 0)
+                if ((dt_timeStart.Checked == true && dt_timeEnd.Checked == true) && tb_SkindNr.Text =="0" )  // check historic movement for all skids
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Filters not selected", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    gridProductionData.DataSource = DmsDatabase.MFP_GetHistoricDataForAllSkids(dt_timeStart.Value.Date.ToString(), dt_timeEnd.Value.Date.ToString());   // shot actual skids on factory      
+                    lb_searchinfo.Text = " Historic data";
+                }
+                if ((dt_timeStart.Checked == true && dt_timeEnd.Checked == true) && tb_SkindNr.Text != "0")  // check historic movement for one skid
+                {
+                    gridProductionData.DataSource = DmsDatabase.MFP_GetHistoricDataForSkid(dt_timeStart.Value.Date.ToString(), dt_timeEnd.Value.Date.ToString(),int.Parse(tb_SkindNr.Text));   // shot actual skids on factory       
+                    lb_searchinfo.Text = " Historic data , search by skid nr: "+ tb_SkindNr.Text;
+                }
+                if ((dt_timeStart.Checked == true && dt_timeEnd.Checked == true) && tb_BsnNr.Text != "0")  // check historic movement for one bsn
+                {
+                    gridProductionData.DataSource = DmsDatabase.MFP_GetHistoricDataForBSN(dt_timeStart.Value.Date.ToString(), dt_timeEnd.Value.Date.ToString(), int.Parse(tb_BsnNr.Text));   // shot actual skids on factory                 
+                    lb_searchinfo.Text = " Historic data , search by BSN nr" +tb_BsnNr.Text;
                 }
 
-                else
-                {
-                    //  read units on plant MFP
-                    if (filtersForm.CB_searchinMFP)
-                    {
-                        gridProductionData.DataSource = DmsDatabase.MFP_GetStatusSkidFactory();
-                    }
-                    if (filtersForm.CB_SearchinERP)
-                    {
-                        gridProductionData.DataSource = DmsDatabase.GetErpProduction(filtersForm.CB_LeftPlant);
-                    }
-                    if (filtersForm.Sk_nr != 0)
-                    {
-                        gridProductionData.DataSource = DmsDatabase.GetErpSkidData(filtersForm.Sk_nr, filtersForm.CB_LeftPlant);
-                    }
-                    if (filtersForm.Bsn_nr != 0)
-                    {
-                        gridProductionData.DataSource = DmsDatabase.GetErpBnsData(filtersForm.Bsn_nr, filtersForm.CB_LeftPlant);
-                    }
-
-                    ReStyleDataGrid();
-                    bTxt.Enabled = true;
-                }
             }
             else
             {
-                MetroFramework.MetroMessageBox.Show(this, "Filters not selected", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }      
+                gridProductionData.DataSource = DmsDatabase.MFP_GetStatusSkidFactory();    // show actual skids on factory
+                lb_searchinfo.Text = " Actual Skids on Factory";
+            }
+
+            ReStyleDataGrid();
+            hideOrRenameSomeColumns();
+            bTSaveToPDF.Enabled = true;
         }
 
         private void bTxt_Click(object sender, EventArgs e)
@@ -159,15 +150,15 @@ namespace metrostylegui
             pdfTable.DefaultCell.BorderWidth = 0;
             // font definitions
             BaseFont bdeffTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-            Font font_column = new Font(bdeffTimes, 8, 3, Color.DARK_GRAY);
-            Font font_cell = new Font(bdeffTimes, 6, 3, Color.DARK_GRAY);
-            Font font_header = new Font(bdeffTimes, 12, 3, Color.RED);
+            Font font_column = new Font(bdeffTimes, 7, 3, Color.DARK_GRAY);
+            Font font_cell = new Font(bdeffTimes, 5, 3, Color.DARK_GRAY);
+            Font font_header = new Font(bdeffTimes, 10, 3, Color.RED);
 
             //Adding Header row
             foreach (DataGridViewColumn column in gridProductionData.Columns)
             {
                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, font_column));
-                cell.BackgroundColor = new iTextSharp.text.Color(140, 40, 240);
+                cell.BackgroundColor = new iTextSharp.text.Color(255, 255, 204);    //(140, 40, 240);
                 pdfTable.AddCell(cell);
             }
             //Adding DataRow
@@ -211,7 +202,7 @@ namespace metrostylegui
 
             // source input 
             string loginID = DmsSession.LoggedUserDisplayName;
-            Paragraph headertext = new Paragraph("Summary Report for: " + loginID, font_header);
+            Paragraph headertext = new Paragraph("Summary Report for: " + lb_searchinfo.Text); //loginID, font_header);
             Paragraph lastupdatetext = new Paragraph("Created time " + DateTime.Now.ToString(), font_column);
             Paragraph emptylinetext = new Paragraph(" ");
 
@@ -246,47 +237,47 @@ namespace metrostylegui
                 MetroFramework.MetroMessageBox.Show(this, "Save procedure was canceled", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
-        DmsForm_Filer filtersForm;
+        DmsForm_Overview OverviewForm;
         private void bFilters_Click(object sender, EventArgs e)
         {
-            if (filtersForm == null)
+            if (OverviewForm == null)
             {
-                filtersForm = new DmsForm_Filer();
-                filtersForm.FormClosing += factoryForm_FormClosing;
+                OverviewForm = new DmsForm_Overview();
+                OverviewForm.FormClosing += factoryForm_FormClosing;
             }
-            filtersForm.Show();
-            if (filtersForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
+            OverviewForm.Show();
+            if (OverviewForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
             {
-                filtersForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                OverviewForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
             }
-            if (!filtersForm.Focused)
+            if (!OverviewForm.Focused)
             {
-                filtersForm.Focus();
+                OverviewForm.Focus();
             }
         }
         private void factoryForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
-            if (filtersForm != null)
+            if (OverviewForm != null)
             {
-                filtersForm.FormClosing -= factoryForm_FormClosing;
+                OverviewForm.FormClosing -= factoryForm_FormClosing;
             }
-            filtersForm = null;
+            OverviewForm = null;
 
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-
-            //  gridProductionData.DataSource = DmsDatabase.GetErpWithRange(1, 500);
             ReStyleDataGrid();
-            bTxt.Enabled = true;
+            bTSaveToPDF.Enabled = true;
         }
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow selecteditem in gridProductionData.SelectedRows)
             {
+
                 int skid_value = Int32.Parse(gridProductionData.Rows[selecteditem.Index].Cells["ForeignSkid"].Value.ToString());
 
+                MetroFramework.MetroMessageBox.Show(this, "Do You want remove Record for skid Nr : " + skid_value.ToString(), "MetroMessagebox", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
                 bool leftplent = bool.Parse(gridProductionData.Rows[selecteditem.Index].Cells["LeftPlant"].Value.ToString());
 
                 if (leftplent == false)
@@ -397,34 +388,84 @@ namespace metrostylegui
             {
                 MetroFramework.MetroMessageBox.Show(this, "Save procedure was canceled", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-        }
-
-        private void t_filterscheck_Tick(object sender, EventArgs e)
-        {
-            if (filtersForm != null)
-            {
-                if (bFilters.Style == MetroFramework.MetroColorStyle.Red)
-                {
-                    bFilters.Style = MetroFramework.MetroColorStyle.Blue;
-
-                }
-                else
-                {
-                    bFilters.Style = MetroFramework.MetroColorStyle.Red;
-
-
-                }
-            }
-            else
-            {
-                bFilters.Style = MetroFramework.MetroColorStyle.Blue;
-            }
-            bFilters.Refresh();
-        }
-
+        } 
         private void cb_shotrinfo_CheckedChanged(object sender, EventArgs e)
         {
             hideOrRenameSomeColumns();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void showUnitOnMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             foreach (DataGridViewRow selecteditem in gridProductionData.SelectedRows)
+            {
+                string place_desc = "No Place";
+
+                int selectedsk_nr = Int32.Parse(gridProductionData.Rows[selecteditem.Index].Cells[1].Value.ToString());
+
+                //if (gridProductionData.Rows[selecteditem.Index].Cells["Actual Position"].Value.ToString() == "Actual Position")
+                //{
+                  place_desc = (gridProductionData.Rows[selecteditem.Index].Cells[16].Value.ToString());              
+                //}
+             
+                if (selectedsk_nr != 0)
+                {
+                    if (OverviewForm == null)
+                    {
+                        OverviewForm = new DmsForm_Overview();
+                        OverviewForm.FormClosing += factoryForm_FormClosing;
+                    }
+                    OverviewForm._SelectedSk_nr = selectedsk_nr;
+                    OverviewForm._Place_nr = place_desc;
+                    OverviewForm.paintOverview();
+                    OverviewForm.Show();
+              
+                    if (OverviewForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
+                    {
+                        OverviewForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                    }
+                    if (!OverviewForm.Focused)
+                    {
+                        OverviewForm.Focus();
+                    }
+                }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Missing skid nr", "MetroMessagebox", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+             }          
+        }
+
+        private void t_filtercheck_Tick(object sender, EventArgs e)
+        {
+            if (tb_BsnNr.Text != "0" || tb_SkindNr.Text != "0" || dt_timeStart.Checked == true || dt_timeEnd.Checked == true)
+            {
+                if (bt_resetfilter.Style == MetroFramework.MetroColorStyle.Red)
+                {
+                    bt_resetfilter.Style = MetroFramework.MetroColorStyle.Silver;
+                }
+                else
+                {
+                bt_resetfilter.Style = MetroFramework.MetroColorStyle.Red;
+                }
+                bt_resetfilter.Visible = true;
+            }
+
+            bt_resetfilter.Refresh();
+
+        }
+
+        private void b_resetfilter_Click(object sender, EventArgs e)
+        {
+            tb_BsnNr.Text = "0";
+            tb_SkindNr.Text = "0";
+            dt_timeStart.Checked = false;
+            dt_timeEnd.Checked = false;
+            bt_resetfilter.Visible = false;
         }
     }
 }

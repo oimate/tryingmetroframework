@@ -79,11 +79,31 @@ namespace metrostylegui
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
             return adapter.SelecTop1000 ();
         }
-        public static System.Data.DataTable MFP_GetStatusSkidFactory()
+        public static System.Data.DataTable MFP_GetStatusSkidFactory()  // all skid on factory
         {
             var adapter = new DmsDatabase.Adapters.DMS_ERP();
             return adapter.MFP_SelectUnitsOnFactory();
         }
+
+        public static System.Data.DataTable MFP_GetHistoricDataForSkid( string time_Start, string time_End, int Skid_Id)
+        {
+            var adapter = new DmsDatabase.Adapters.DMS_ERP();
+            return adapter.MFP_SelectHistoricDataForSkid(time_Start, time_End, Skid_Id);
+        }
+
+
+        public static System.Data.DataTable MFP_GetHistoricDataForAllSkids(string time_Start, string time_End)
+        {
+            var adapter = new DmsDatabase.Adapters.DMS_ERP();
+            return adapter.MFP_SelectHistoricDataForAllUnits(time_Start, time_End);
+        }
+        public static System.Data.DataTable MFP_GetHistoricDataForBSN(string time_Start, string time_End, int bsn)
+        {
+            var adapter = new DmsDatabase.Adapters.DMS_ERP();
+            return adapter.MFP_SelectHistoricDataForBSN(time_Start, time_End, bsn);
+        }
+
+
 
         public class DmsUser
         {
@@ -522,729 +542,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
                     return returnValue;
                 }
 
-                //public virtual int Fill(UserDataSet.DS_PrmUser_TABDataTable dataTable)
-                //{
-                //	this.Adapter.SelectCommand = this.CommandCollection[0];
-                //	if ((this.ClearBeforeFill == true))
-                //	{
-                //		dataTable.Clear();
-                //	}
-                //	int returnValue = this.Adapter.Fill(dataTable);
-                //	return returnValue;
-                //}
-
-                //public virtual UserDataSet.DS_PrmUser_TABDataTable GetData()
-                //{
-                //	this.Adapter.SelectCommand = this.CommandCollection[0];
-                //	UserDataSet.DS_PrmUser_TABDataTable dataTable = new UserDataSet.DS_PrmUser_TABDataTable();
-                //	this.Adapter.Fill(dataTable);
-                //	return dataTable;
-                //}
-
-                //public virtual UserDataSet.DS_PrmUser_TABDataTable GetUserById(long id)
-                //{
-                //	this.Adapter.SelectCommand = this.CommandCollection[1];
-                //	this.Adapter.SelectCommand.Parameters[0].Value = ((long)(id));
-                //	UserDataSet.DS_PrmUser_TABDataTable dataTable = new UserDataSet.DS_PrmUser_TABDataTable();
-                //	this.Adapter.Fill(dataTable);
-                //	return dataTable;
-                //}
-
-                //public virtual UserDataSet.DS_PrmUser_TABDataTable GetUserSetById(long Id)
-                //{
-                //	this.Adapter.SelectCommand = this.CommandCollection[2];
-                //	this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Id));
-                //	UserDataSet.DS_PrmUser_TABDataTable dataTable = new UserDataSet.DS_PrmUser_TABDataTable();
-                //	this.Adapter.Fill(dataTable);
-                //	return dataTable;
-                //}
-
-                //public virtual int Update(UserDataSet.DS_PrmUser_TABDataTable dataTable)
-                //{
-                //	return this.Adapter.Update(dataTable);
-                //}
-
-                //public virtual int Update(UserDataSet dataSet)
-                //{
-                //	return this.Adapter.Update(dataSet, "DS_PrmUser_TAB");
-                //}
-
-                //public virtual int Update(System.Data.DataRow dataRow)
-                //{
-                //	return this.Adapter.Update(new System.Data.DataRow[] {
-                //		dataRow});
-                //}
-
-                //public virtual int Update(System.Data.DataRow[] dataRows)
-                //{
-                //	return this.Adapter.Update(dataRows);
-                //}
-
-                //public virtual int Delete(long Original_id, string Original_login_name, string Original_firstname, string Original_lastname, string Original_display_name, string Original_pwd, string Original_email, string Original_description, string Original_cardcode, System.Nullable<System.DateTime> Original_last_login, string Original_start_url, System.Nullable<System.DateTime> Original_expiration_date, System.Nullable<bool> Original_deactivated)
-                //{
-                //	this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
-                //	if ((Original_login_name == null))
-                //	{
-                //		throw new System.ArgumentNullException("Original_login_name");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_login_name));
-                //	}
-                //	if ((Original_firstname == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[3].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_firstname));
-                //	}
-                //	if ((Original_lastname == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[5].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_lastname));
-                //	}
-                //	if ((Original_display_name == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[7].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_display_name));
-                //	}
-                //	if ((Original_pwd == null))
-                //	{
-                //		throw new System.ArgumentNullException("Original_pwd");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_pwd));
-                //	}
-                //	if ((Original_email == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[10].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_email));
-                //	}
-                //	if ((Original_description == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[12].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_description));
-                //	}
-                //	if ((Original_cardcode == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[14].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_cardcode));
-                //	}
-                //	if ((Original_last_login.HasValue == true))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(Original_last_login.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[16].Value = System.DBNull.Value;
-                //	}
-                //	if ((Original_start_url == null))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[18].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_start_url));
-                //	}
-                //	if ((Original_expiration_date.HasValue == true))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_expiration_date.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[20].Value = System.DBNull.Value;
-                //	}
-                //	if ((Original_deactivated.HasValue == true))
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                //		this.Adapter.DeleteCommand.Parameters[22].Value = ((bool)(Original_deactivated.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                //		this.Adapter.DeleteCommand.Parameters[22].Value = System.DBNull.Value;
-                //	}
-                //	System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-                //	if (((this.Adapter.DeleteCommand.Connection.State & System.Data.ConnectionState.Open)
-                //				!= System.Data.ConnectionState.Open))
-                //	{
-                //		this.Adapter.DeleteCommand.Connection.Open();
-                //	}
-                //	try
-                //	{
-                //		int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                //		return returnValue;
-                //	}
-                //	finally
-                //	{
-                //		if ((previousConnectionState == System.Data.ConnectionState.Closed))
-                //		{
-                //			this.Adapter.DeleteCommand.Connection.Close();
-                //		}
-                //	}
-                //}
-
-                //public virtual int Insert(long id, string login_name, string firstname, string lastname, string display_name, string pwd, string email, string description, string persistent_data, string cardcode, System.Nullable<System.DateTime> last_login, string start_url, System.Nullable<System.DateTime> expiration_date, System.Nullable<bool> deactivated)
-                //{
-                //	this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
-                //	if ((login_name == null))
-                //	{
-                //		throw new System.ArgumentNullException("login_name");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[1].Value = ((string)(login_name));
-                //	}
-                //	if ((firstname == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[2].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[2].Value = ((string)(firstname));
-                //	}
-                //	if ((lastname == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[3].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[3].Value = ((string)(lastname));
-                //	}
-                //	if ((display_name == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[4].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[4].Value = ((string)(display_name));
-                //	}
-                //	if ((pwd == null))
-                //	{
-                //		throw new System.ArgumentNullException("pwd");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[5].Value = ((string)(pwd));
-                //	}
-                //	if ((email == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[6].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[6].Value = ((string)(email));
-                //	}
-                //	if ((description == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[7].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[7].Value = ((string)(description));
-                //	}
-                //	if ((persistent_data == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[8].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[8].Value = ((string)(persistent_data));
-                //	}
-                //	if ((cardcode == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[9].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[9].Value = ((string)(cardcode));
-                //	}
-                //	if ((last_login.HasValue == true))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(last_login.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[10].Value = System.DBNull.Value;
-                //	}
-                //	if ((start_url == null))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[11].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[11].Value = ((string)(start_url));
-                //	}
-                //	if ((expiration_date.HasValue == true))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(expiration_date.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[12].Value = System.DBNull.Value;
-                //	}
-                //	if ((deactivated.HasValue == true))
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[13].Value = ((bool)(deactivated.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.InsertCommand.Parameters[13].Value = System.DBNull.Value;
-                //	}
-                //	System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-                //	if (((this.Adapter.InsertCommand.Connection.State & System.Data.ConnectionState.Open)
-                //				!= System.Data.ConnectionState.Open))
-                //	{
-                //		this.Adapter.InsertCommand.Connection.Open();
-                //	}
-                //	try
-                //	{
-                //		int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                //		return returnValue;
-                //	}
-                //	finally
-                //	{
-                //		if ((previousConnectionState == System.Data.ConnectionState.Closed))
-                //		{
-                //			this.Adapter.InsertCommand.Connection.Close();
-                //		}
-                //	}
-                //}
-
-                //public virtual int Update(
-                //			long id,
-                //			string login_name,
-                //			string firstname,
-                //			string lastname,
-                //			string display_name,
-                //			string pwd,
-                //			string email,
-                //			string description,
-                //			string persistent_data,
-                //			string cardcode,
-                //			System.Nullable<System.DateTime> last_login,
-                //			string start_url,
-                //			System.Nullable<System.DateTime> expiration_date,
-                //			System.Nullable<bool> deactivated,
-                //			long Original_id,
-                //			string Original_login_name,
-                //			string Original_firstname,
-                //			string Original_lastname,
-                //			string Original_display_name,
-                //			string Original_pwd,
-                //			string Original_email,
-                //			string Original_description,
-                //			string Original_cardcode,
-                //			System.Nullable<System.DateTime> Original_last_login,
-                //			string Original_start_url,
-                //			System.Nullable<System.DateTime> Original_expiration_date,
-                //			System.Nullable<bool> Original_deactivated)
-                //{
-                //	this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
-                //	if ((login_name == null))
-                //	{
-                //		throw new System.ArgumentNullException("login_name");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(login_name));
-                //	}
-                //	if ((firstname == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[2].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(firstname));
-                //	}
-                //	if ((lastname == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[3].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(lastname));
-                //	}
-                //	if ((display_name == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[4].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(display_name));
-                //	}
-                //	if ((pwd == null))
-                //	{
-                //		throw new System.ArgumentNullException("pwd");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(pwd));
-                //	}
-                //	if ((email == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[6].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(email));
-                //	}
-                //	if ((description == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[7].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(description));
-                //	}
-                //	if ((persistent_data == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[8].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(persistent_data));
-                //	}
-                //	if ((cardcode == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[9].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(cardcode));
-                //	}
-                //	if ((last_login.HasValue == true))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(last_login.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[10].Value = System.DBNull.Value;
-                //	}
-                //	if ((start_url == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[11].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(start_url));
-                //	}
-                //	if ((expiration_date.HasValue == true))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(expiration_date.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[12].Value = System.DBNull.Value;
-                //	}
-                //	if ((deactivated.HasValue == true))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(deactivated.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[13].Value = System.DBNull.Value;
-                //	}
-                //	this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Original_id));
-                //	if ((Original_login_name == null))
-                //	{
-                //		throw new System.ArgumentNullException("Original_login_name");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_login_name));
-                //	}
-                //	if ((Original_firstname == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[17].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_firstname));
-                //	}
-                //	if ((Original_lastname == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[19].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_lastname));
-                //	}
-                //	if ((Original_display_name == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[21].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_display_name));
-                //	}
-                //	if ((Original_pwd == null))
-                //	{
-                //		throw new System.ArgumentNullException("Original_pwd");
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_pwd));
-                //	}
-                //	if ((Original_email == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[24].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_email));
-                //	}
-                //	if ((Original_description == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[26].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_description));
-                //	}
-                //	if ((Original_cardcode == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[28].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_cardcode));
-                //	}
-                //	if ((Original_last_login.HasValue == true))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_last_login.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[30].Value = System.DBNull.Value;
-                //	}
-                //	if ((Original_start_url == null))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[32].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_start_url));
-                //	}
-                //	if ((Original_expiration_date.HasValue == true))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[34].Value = ((System.DateTime)(Original_expiration_date.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[34].Value = System.DBNull.Value;
-                //	}
-                //	if ((Original_deactivated.HasValue == true))
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                //		this.Adapter.UpdateCommand.Parameters[36].Value = ((bool)(Original_deactivated.Value));
-                //	}
-                //	else
-                //	{
-                //		this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                //		this.Adapter.UpdateCommand.Parameters[36].Value = System.DBNull.Value;
-                //	}
-                //	System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-                //	if (((this.Adapter.UpdateCommand.Connection.State & System.Data.ConnectionState.Open)
-                //				!= System.Data.ConnectionState.Open))
-                //	{
-                //		this.Adapter.UpdateCommand.Connection.Open();
-                //	}
-                //	try
-                //	{
-                //		int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                //		return returnValue;
-                //	}
-                //	finally
-                //	{
-                //		if ((previousConnectionState == System.Data.ConnectionState.Closed))
-                //		{
-                //			this.Adapter.UpdateCommand.Connection.Close();
-                //		}
-                //	}
-                //}
-
-                //public virtual int Update(
-                //			string login_name,
-                //			string firstname,
-                //			string lastname,
-                //			string display_name,
-                //			string pwd,
-                //			string email,
-                //			string description,
-                //			string persistent_data,
-                //			string cardcode,
-                //			System.Nullable<System.DateTime> last_login,
-                //			string start_url,
-                //			System.Nullable<System.DateTime> expiration_date,
-                //			System.Nullable<bool> deactivated,
-                //			long Original_id,
-                //			string Original_login_name,
-                //			string Original_firstname,
-                //			string Original_lastname,
-                //			string Original_display_name,
-                //			string Original_pwd,
-                //			string Original_email,
-                //			string Original_description,
-                //			string Original_cardcode,
-                //			System.Nullable<System.DateTime> Original_last_login,
-                //			string Original_start_url,
-                //			System.Nullable<System.DateTime> Original_expiration_date,
-                //			System.Nullable<bool> Original_deactivated)
-                //{
-                //	return this.Update(Original_id, login_name, firstname, lastname, display_name, pwd, email, description, persistent_data, cardcode, last_login, start_url, expiration_date, deactivated, Original_id, Original_login_name, Original_firstname, Original_lastname, Original_display_name, Original_pwd, Original_email, Original_description, Original_cardcode, Original_last_login, Original_start_url, Original_expiration_date, Original_deactivated);
-                //}
-
-                //public virtual int UpdateLastLogin(System.Nullable<System.DateTime> last_login, long Id)
-                //{
-                //	System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-                //	if ((last_login.HasValue == true))
-                //	{
-                //		command.Parameters[0].Value = ((System.DateTime)(last_login.Value));
-                //	}
-                //	else
-                //	{
-                //		command.Parameters[0].Value = System.DBNull.Value;
-                //	}
-                //	command.Parameters[1].Value = ((long)(Id));
-                //	System.Data.ConnectionState previousConnectionState = command.Connection.State;
-                //	if (((command.Connection.State & System.Data.ConnectionState.Open)
-                //				!= System.Data.ConnectionState.Open))
-                //	{
-                //		command.Connection.Open();
-                //	}
-                //	int returnValue;
-                //	try
-                //	{
-                //		returnValue = command.ExecuteNonQuery();
-                //	}
-                //	finally
-                //	{
-                //		if ((previousConnectionState == System.Data.ConnectionState.Closed))
-                //		{
-                //			command.Connection.Close();
-                //		}
-                //	}
-                //	return returnValue;
-                //}
-
-                //public virtual int UpdateUserById(string login_name, string firstname, string lastname, string display_name, string pwd, long Id)
-                //{
-                //	System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
-                //	if ((login_name == null))
-                //	{
-                //		throw new System.ArgumentNullException("login_name");
-                //	}
-                //	else
-                //	{
-                //		command.Parameters[0].Value = ((string)(login_name));
-                //	}
-                //	if ((firstname == null))
-                //	{
-                //		command.Parameters[1].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		command.Parameters[1].Value = ((string)(firstname));
-                //	}
-                //	if ((lastname == null))
-                //	{
-                //		command.Parameters[2].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		command.Parameters[2].Value = ((string)(lastname));
-                //	}
-                //	if ((display_name == null))
-                //	{
-                //		command.Parameters[3].Value = System.DBNull.Value;
-                //	}
-                //	else
-                //	{
-                //		command.Parameters[3].Value = ((string)(display_name));
-                //	}
-                //	if ((pwd == null))
-                //	{
-                //		throw new System.ArgumentNullException("pwd");
-                //	}
-                //	else
-                //	{
-                //		command.Parameters[4].Value = ((string)(pwd));
-                //	}
-                //	command.Parameters[5].Value = ((long)(Id));
-                //	System.Data.ConnectionState previousConnectionState = command.Connection.State;
-                //	if (((command.Connection.State & System.Data.ConnectionState.Open)
-                //				!= System.Data.ConnectionState.Open))
-                //	{
-                //		command.Connection.Open();
-                //	}
-                //	int returnValue;
-                //	try
-                //	{
-                //		returnValue = command.ExecuteNonQuery();
-                //	}
-                //	finally
-                //	{
-                //		if ((previousConnectionState == System.Data.ConnectionState.Closed))
-                //		{
-                //			command.Connection.Close();
-                //		}
-                //	}
-                //	return returnValue;
-                //}
+     
 
                 internal void UpdateLoginTimestamp(long? id, DateTime dateTime)
                 {
@@ -1558,7 +856,7 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                 private void InitCommandCollection()
                 {
-                    this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
+                    this._commandCollection = new global::System.Data.SqlClient.SqlCommand[14];
 
                     #region Command 0
                     this._commandCollection[0] = new System.Data.SqlClient.SqlCommand();
@@ -1655,6 +953,32 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
                     this._commandCollection[10].Connection = this.Connection;
                     this._commandCollection[10].CommandText = @"Select * from DMS_ERP join DMS_MFP on DMS_ERP.ForeignSkid = DMS_MFP.fk_LocalSkidNr join DMS_MFPDesc on DMS_MFP.MfpPos = DMS_MFPDesc.fk_MfpPos  where DMS_ERP.LeftPlant = '0'";                  
                     this._commandCollection[10].CommandType = System.Data.CommandType.Text;
+                    #endregion
+                    #region Command 11  search historic units by skid id with timestamp 
+                    this._commandCollection[11] = new System.Data.SqlClient.SqlCommand();
+                    this._commandCollection[11].Connection = this.Connection;
+                    this._commandCollection[11].CommandText = @"Select * from DMS_MFPHistoric join DMS_MFPDesc on DMS_MFPHistoric.MfpPos= DMS_MFPDesc.fk_MfpPos join DMS_ERP on DMS_MFPHistoric.LocalSkidId=DMS_ERP.ForeignSkid where DMS_MFPHistoric.Timestamp between @time_Start and @time_End and DMS_ERP.Timestamp  between @time_Start and @time_End and (DMS_MFPHistoric.LocalSkidId = @localSkid) order by LocalSkidId ";  
+                    this._commandCollection[11].CommandType = System.Data.CommandType.Text;
+                    this._commandCollection[11].Parameters.Add(new System.Data.SqlClient.SqlParameter("@time_Start", System.Data.SqlDbType.DateTime2));
+                    this._commandCollection[11].Parameters.Add(new System.Data.SqlClient.SqlParameter("@time_End", System.Data.SqlDbType.DateTime2));
+                    this._commandCollection[11].Parameters.Add(new System.Data.SqlClient.SqlParameter("@localSkid", System.Data.SqlDbType.Int));
+                    #endregion
+                    #region Command 12  search historic  for all skids  with timestamp
+                    this._commandCollection[12] = new System.Data.SqlClient.SqlCommand();
+                    this._commandCollection[12].Connection = this.Connection;
+                    this._commandCollection[12].CommandText = @"Select * from DMS_MFPHistoric join DMS_MFPDesc on DMS_MFPHistoric.MfpPos= DMS_MFPDesc.fk_MfpPos join DMS_ERP on DMS_MFPHistoric.LocalSkidId=DMS_ERP.ForeignSkid where DMS_MFPHistoric.Timestamp between @time_Start and @time_End and DMS_ERP.Timestamp  between @time_Start and @time_End order by LocalSkidId ";
+                    this._commandCollection[12].CommandType = System.Data.CommandType.Text;
+                    this._commandCollection[12].Parameters.Add(new System.Data.SqlClient.SqlParameter("@time_Start", System.Data.SqlDbType.DateTime2));
+                    this._commandCollection[12].Parameters.Add(new System.Data.SqlClient.SqlParameter("@time_End", System.Data.SqlDbType.DateTime2));
+                    #endregion
+                    #region Command 13  search historic units by BSN with timestamp
+                    this._commandCollection[13] = new System.Data.SqlClient.SqlCommand();
+                    this._commandCollection[13].Connection = this.Connection;
+                    this._commandCollection[13].CommandText = @"Select * from DMS_MFPHistoric join DMS_MFPDesc on DMS_MFPHistoric.MfpPos= DMS_MFPDesc.fk_MfpPos join DMS_ERP on DMS_MFPHistoric.LocalSkidId=DMS_ERP.ForeignSkid where DMS_MFPHistoric.Timestamp between @time_Start and @time_End and DMS_ERP.Timestamp  between @time_Start and @time_End and (DMS_ERP.BSN = @bsn) order by BSN ";
+                    this._commandCollection[13].CommandType = System.Data.CommandType.Text;
+                    this._commandCollection[13].Parameters.Add(new System.Data.SqlClient.SqlParameter("@time_Start", System.Data.SqlDbType.DateTime2));
+                    this._commandCollection[13].Parameters.Add(new System.Data.SqlClient.SqlParameter("@time_End", System.Data.SqlDbType.DateTime2));
+                    this._commandCollection[13].Parameters.Add(new System.Data.SqlClient.SqlParameter("@bsn", System.Data.SqlDbType.Int));
                     #endregion
                 }
                 internal System.Data.DataTable SelecTop1000()
@@ -1968,6 +1292,139 @@ WHERE		(DS_PrmUser_TAB.id = @Id)";
 
                     return dt;
                 }
+                internal System.Data.DataTable MFP_SelectHistoricDataForSkid(string timeStart, string timeEnd, int localSkidId)
+                {
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
+                    command.Parameters[0].Value = timeStart;
+                    command.Parameters[1].Value = timeEnd;
+                    command.Parameters[2].Value = localSkidId;
+                    var dt = new System.Data.DataTable();
+
+                    System.Data.ConnectionState previousConnectionState = command.Connection.State;
+                    if (((command.Connection.State & System.Data.ConnectionState.Open)
+                                != System.Data.ConnectionState.Open))
+                    {
+                        command.Connection.Open();
+                    }
+
+                    try
+                    {
+                        var reader = command.ExecuteReader();
+
+                        try
+                        {
+                            dt.Load(reader, System.Data.LoadOption.OverwriteChanges);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notes.Log(ex);
+                            return null;
+                        }
+                        finally
+                        {
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                    finally
+                    {
+                        if ((previousConnectionState == System.Data.ConnectionState.Closed))
+                        {
+                            command.Connection.Close();
+                        }
+                    }
+
+                    return dt;
+                }
+                internal System.Data.DataTable MFP_SelectHistoricDataForAllUnits(string timeStart, string timeEnd)
+                {
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[12];
+                    command.Parameters[0].Value = timeStart;
+                    command.Parameters[1].Value = timeEnd;
+                    var dt = new System.Data.DataTable();
+
+                    System.Data.ConnectionState previousConnectionState = command.Connection.State;
+                    if (((command.Connection.State & System.Data.ConnectionState.Open)
+                                != System.Data.ConnectionState.Open))
+                    {
+                        command.Connection.Open();
+                    }
+
+                    try
+                    {
+                        var reader = command.ExecuteReader();
+
+                        try
+                        {
+                            dt.Load(reader, System.Data.LoadOption.OverwriteChanges);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notes.Log(ex);
+                            return null;
+                        }
+                        finally
+                        {
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                    finally
+                    {
+                        if ((previousConnectionState == System.Data.ConnectionState.Closed))
+                        {
+                            command.Connection.Close();
+                        }
+                    }
+
+                    return dt;
+                }
+                internal System.Data.DataTable MFP_SelectHistoricDataForBSN(string timeStart, string timeEnd, int bsn)
+                {
+                    System.Data.SqlClient.SqlCommand command = this.CommandCollection[13];
+                    command.Parameters[0].Value = timeStart;
+                    command.Parameters[1].Value = timeEnd;
+                    command.Parameters[2].Value = bsn;
+                    var dt = new System.Data.DataTable();
+
+                    System.Data.ConnectionState previousConnectionState = command.Connection.State;
+                    if (((command.Connection.State & System.Data.ConnectionState.Open)
+                                != System.Data.ConnectionState.Open))
+                    {
+                        command.Connection.Open();
+                    }
+
+                    try
+                    {
+                        var reader = command.ExecuteReader();
+
+                        try
+                        {
+                            dt.Load(reader, System.Data.LoadOption.OverwriteChanges);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notes.Log(ex);
+                            return null;
+                        }
+                        finally
+                        {
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                    finally
+                    {
+                        if ((previousConnectionState == System.Data.ConnectionState.Closed))
+                        {
+                            command.Connection.Close();
+                        }
+                    }
+
+                    return dt;
+                }
+
+
             }
             #endregion
 

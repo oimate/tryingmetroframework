@@ -32,9 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>iTextSharp\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp">
+      <HintPath>bin\Debug\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\MetroFramework.dll</HintPath>
@@ -64,11 +63,11 @@
     <Compile Include="DmsForm_ProductionData.Designer.cs">
       <DependentUpon>DmsForm_ProductionData.cs</DependentUpon>
     </Compile>
-    <Compile Include="DmsForm_Filter.cs">
+    <Compile Include="DmsForm_Overview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DmsForm_Filter.Designer.cs">
-      <DependentUpon>DmsForm_Filter.cs</DependentUpon>
+    <Compile Include="DmsForm_Overview.Designer.cs">
+      <DependentUpon>DmsForm_Overview.cs</DependentUpon>
     </Compile>
     <Compile Include="DmsForm_Login.cs">
       <SubType>Form</SubType>
@@ -91,8 +90,8 @@
     <EmbeddedResource Include="DmsForm_ProductionData.resx">
       <DependentUpon>DmsForm_ProductionData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DmsForm_Filter.resx">
-      <DependentUpon>DmsForm_Filter.cs</DependentUpon>
+    <EmbeddedResource Include="DmsForm_Overview.resx">
+      <DependentUpon>DmsForm_Overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DmsForm_Login.resx">
       <DependentUpon>DmsForm_Login.cs</DependentUpon>
@@ -149,6 +148,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pdf3_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\celownik.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jaguarOverview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

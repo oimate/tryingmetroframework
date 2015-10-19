@@ -70,6 +70,16 @@ namespace metrostylegui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap celownik {
+            get {
+                object obj = ResourceManager.GetObject("celownik", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit:.
         /// </summary>
         internal static string Edit {
@@ -122,6 +132,16 @@ namespace metrostylegui.Properties {
         internal static System.Drawing.Bitmap jaguarland {
             get {
                 object obj = ResourceManager.GetObject("jaguarland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jaguarOverview {
+            get {
+                object obj = ResourceManager.GetObject("jaguarOverview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

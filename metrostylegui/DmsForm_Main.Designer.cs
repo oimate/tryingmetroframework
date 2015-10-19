@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutStatus = new System.Windows.Forms.TableLayoutPanel();
-            this.tileFactory = new MetroFramework.Controls.MetroTile();
             this.tileERP = new MetroFramework.Controls.MetroTile();
             this.tileLoginLogout = new MetroFramework.Controls.MetroTile();
             this.tilePlcStatus = new MetroFramework.Controls.MetroTile();
             this.tileDatabaseStatus = new MetroFramework.Controls.MetroTile();
-            this.bgCon = new System.ComponentModel.BackgroundWorker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bgCon = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +47,6 @@
             this.tableLayoutStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutStatus.Controls.Add(this.tileFactory, 2, 9);
             this.tableLayoutStatus.Controls.Add(this.tileERP, 2, 8);
             this.tableLayoutStatus.Controls.Add(this.tileLoginLogout, 1, 2);
             this.tableLayoutStatus.Controls.Add(this.tilePlcStatus, 1, 5);
@@ -73,22 +71,6 @@
             this.tableLayoutStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutStatus.Size = new System.Drawing.Size(790, 535);
             this.tableLayoutStatus.TabIndex = 1;
-            // 
-            // tileFactory
-            // 
-            this.tileFactory.ActiveControl = null;
-            this.tileFactory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileFactory.Location = new System.Drawing.Point(398, 370);
-            this.tileFactory.Name = "tileFactory";
-            this.tileFactory.Size = new System.Drawing.Size(194, 34);
-            this.tileFactory.Style = MetroFramework.MetroColorStyle.Purple;
-            this.tileFactory.TabIndex = 5;
-            this.tileFactory.Text = "Factory State";
-            this.tileFactory.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.tileFactory.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.tileFactory.UseSelectable = true;
-            this.tileFactory.Visible = false;
-            this.tileFactory.Click += new System.EventHandler(this.tileFactory_Click);
             // 
             // tileERP
             // 
@@ -152,10 +134,6 @@
             this.tileDatabaseStatus.UseSelectable = true;
             this.tileDatabaseStatus.Click += new System.EventHandler(this.tileDatabaseStatus_Click);
             // 
-            // bgCon
-            // 
-            this.bgCon.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgCon_DoWork);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::metrostylegui.Properties.Resources.jaguarland;
@@ -165,6 +143,10 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // bgCon
+            // 
+            this.bgCon.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgCon_DoWork);
             // 
             // DmsForm_Main
             // 
@@ -190,7 +172,6 @@
         private MetroFramework.Controls.MetroTile tileLoginLogout;
         private MetroFramework.Controls.MetroTile tilePlcStatus;
         private MetroFramework.Controls.MetroTile tileDatabaseStatus;
-        private MetroFramework.Controls.MetroTile tileFactory;
         private MetroFramework.Controls.MetroTile tileERP;
         private System.ComponentModel.BackgroundWorker bgCon;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -72,7 +72,7 @@ namespace metrostylegui
 
         private void SwitchTilesVisible(bool onoff)
         {
-            tileERP.Visible = tileFactory.Visible = onoff;
+            tileERP.Visible  = onoff;
         }
 
         private void metroTile1_Click(object sender, System.EventArgs e)
@@ -89,15 +89,6 @@ namespace metrostylegui
                 productionForm.FormClosing += productionForm_FormClosing;
             }
             productionForm.Show();
-            //if (productionForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
-            //{
-            //    productionForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            //}
-            //if (!productionForm.Focused)
-            //{
-            //    productionForm.Focus();
-            //}
-            //this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
         private void productionForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
@@ -106,37 +97,10 @@ namespace metrostylegui
                 productionForm.FormClosing -= productionForm_FormClosing;
             }
             productionForm = null;
-            //this.WindowState = System.Windows.Forms.FormWindowState.Normal;
         }
-
- //       DmsForm_Filer factoryForm;
         private void tileFactory_Click(object sender, System.EventArgs e)
         {
 
-      //      metroStyleManager.Theme = metroStyleManager.Theme == MetroThemeStyle.Light ? MetroThemeStyle.Dark : MetroThemeStyle.Light;
-
-        //    if (factoryForm == null)
-        //    {
-        //        factoryForm = new DmsForm_Filer();
-        //        factoryForm.FormClosing += factoryForm_FormClosing;
-        //    }
-        //    factoryForm.Show();
-        //    if (factoryForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
-        //    {
-        //        factoryForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
-        //    }
-        //    if (!factoryForm.Focused)
-        //    {
-        //        factoryForm.Focus();
-        //    }
-        //}
-        //private void factoryForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        //{
-        //    if (factoryForm != null)
-        //    {
-        //        factoryForm.FormClosing -= factoryForm_FormClosing;
-        //    }
-        //    factoryForm = null;
         }
 
         private void tilePlcStatus_Click(object sender, System.EventArgs e)
